@@ -3,7 +3,7 @@
     
     <g-image alt="Example image" src="~/favicon.png" width="135" />
     
-    <h1>Holi, world!</h1>
+    <h1>Holi, world!!!! #$%#&$%&#</h1>
    
     <p>
       Sitio estático.
