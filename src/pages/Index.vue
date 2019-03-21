@@ -1,16 +1,16 @@
 <template>
   <Layout>
     
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
+    <g-image alt="Logo Modyo" src="/logo-modyo.png" />
     
-    <h1>Holi, world!!!! #$%#&$%&#</h1>
+    <h1>Hola mundo!</h1>
    
     <p>
-      Sitio estático.
+      Sitio estático desarrollado con la herramienta GridSome.
     </p>
 
     <p class="home-links">
-      <a href="www.modyo.com">Modyo</a>
+      <a href="https://www.modyo.com">Modyo</a>
     </p>
 
   </Layout>
