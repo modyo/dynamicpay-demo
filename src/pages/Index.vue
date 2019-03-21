@@ -1,9 +1,7 @@
 <template>
   <Layout>
-    
-    <g-image alt="Logo Modyo" src="/logo-modyo.png" />
-    
-    <h1>Hola mundo!</h1>
+       
+    <h1>Hola mundo! Hola equipo!</h1>
    
     <p>
       Sitio estático desarrollado con la herramienta GridSome.
