@@ -4,7 +4,7 @@
     <h1>Hola mundo! Hola equipo!</h1>
    
     <p>
-      Sitio estático desarrollado con la herramienta GridSome.
+      Sitio estático desarrollado con la herramienta GridSome!.
     </p>
 
     <p class="home-links">
