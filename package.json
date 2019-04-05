@@ -7,6 +7,9 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "gridsome": "^0.5.0"
+    "bootstrap": "4.3.1",
+    "gridsome": "^0.5.0",
+    "jquery": "1.9.1",
+    "popper.js": "^1.14.7"
   }
 }
