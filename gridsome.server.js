@@ -8,22 +8,25 @@ const axios = require("axios");
 
 module.exports = function(api) {
   api.loadSource(async store => {
-    const { data } = await axios.get(
+    const posts = await axios.get(
       "http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries"
     );
 
-    const contentType = store.addContentType({
+    const postsType = store.addContentType({
       typeName: "Posts"
     });
+    const menuType = store.addContentType({
+      typeName: "Menu"
+    });
 
-    for (const item of data.entries) {
+    for (const item of posts.data.entries) {
       const { meta, fields } = item;
       const spaceId = meta.space;
       const typeName = meta.type_name;
       const id = meta.uuid;
       const title = fields.Titulo;
       const desc = fields.Descripcion;
-      contentType.addNode({
+      postsType.addNode({
         id,
         title,
         content: desc,
@@ -31,23 +34,23 @@ module.exports = function(api) {
       });
     }
 
-    const { menu } = await axios.get(
-        "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries"
+    const menu = await axios.get(
+      "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries"
     );
-
-
-    for (const item of menu.entries) {
-      const name = item.fields.Titulo;
-      const slug = item.fields.Slug;
-      contentType.addNode({
-        name,
-        slug
+    // console.log("===================================");
+    // console.log("menu.data: ", menu.data);
+    // console.log("===================================");
+    for (const item of menu.data.entries) {
+      const title = item.fields.Titulo;
+      const id = item.meta.uuid;
+      const slug = item.fields.slug;
+      menuType.addNode({
+        title,
+        id,
+        fields: {
+          slug
+        }
       });
     }
-
-
-    console.log("===================================");
-    // console.log("contentType: ", contentType);
-    console.log("===================================");
   });
 };
