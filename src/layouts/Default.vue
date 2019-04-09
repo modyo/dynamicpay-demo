@@ -32,6 +32,9 @@
             <li class="nav-item">
               <g-link class="nav-link js-scroll-trigger" to="/about">/About (ruta)</g-link>
             </li>
+            <li class="nav-item">
+              <g-link class="nav-link js-scroll-trigger" to="/posts">/Posts (ruta)</g-link>
+            </li>
           </ul>
         </div>
       </div>

@@ -4,9 +4,34 @@
 
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const axios = require("axios");
 
-module.exports = function (api) {
-  api.loadSource(store => {
-    // Use the Data store API here: https://gridsome.org/docs/data-store-api
-  })
-}
+module.exports = function(api) {
+  api.loadSource(async store => {
+    const { data } = await axios.get(
+      "http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries"
+    );
+
+    const contentType = store.addContentType({
+      typeName: "Posts"
+    });
+
+    for (const item of data.entries) {
+      const { meta, fields } = item;
+      const spaceId = meta.space;
+      const typeName = meta.type_name;
+      const id = meta.uuid;
+      const title = fields.Titulo;
+      const desc = fields.Descripcion;
+      contentType.addNode({
+        id,
+        title,
+        content: desc,
+        fields: { spaceId, typeName }
+      });
+    }
+    console.log("===================================");
+    // console.log("contentType: ", contentType);
+    console.log("===================================");
+  });
+};
