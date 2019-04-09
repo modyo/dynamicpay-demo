@@ -30,6 +30,22 @@ module.exports = function(api) {
         fields: { spaceId, typeName }
       });
     }
+
+    const { menu } = await axios.get(
+        "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries"
+    );
+
+
+    for (const item of menu.entries) {
+      const name = item.fields.Titulo;
+      const slug = item.fields.Slug;
+      contentType.addNode({
+        name,
+        slug
+      });
+    }
+
+
     console.log("===================================");
     // console.log("contentType: ", contentType);
     console.log("===================================");

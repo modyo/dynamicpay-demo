@@ -49,7 +49,6 @@ query {
   }
 </script>
 
-</script>
 
 <style>
 </style>
