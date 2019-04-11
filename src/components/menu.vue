@@ -34,7 +34,7 @@ export default {
           const entries = result.data.entries;
           let menu = [];
           for (const item of entries) {
-            console.log("item: ", item);
+            // console.log("item: ", item);
             const menuItem = {
               id: item.meta.uuid,
               title: item.fields.Titulo,

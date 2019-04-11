@@ -13,6 +13,7 @@
               {{post.id}}
             </h5>
             <div v-html="post.description"/>
+            <hr class="divider light my-5">
           </div>
         </div>
       </div>
@@ -55,7 +56,7 @@ export default {
             // console.log("entry: ", entry);
             const post = {
               id: entry.meta.uuid,
-              title: entry.fields.name,
+              title: entry.fields.Titulo,
               description: entry.fields.Descripcion
             };
             this.posts.push(post);
