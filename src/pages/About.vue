@@ -14,23 +14,6 @@
   </Layout>
 </template>
 
-<page-query>
-query Posts {
-  posts: allPosts {
-    edges {
-      node { 
-        id,
-        title,
-        fields { 
-            spaceId,
-            typeName
-         }
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
 import Layout from "~/layouts/Default.vue";
 export default {
