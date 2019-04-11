@@ -47,7 +47,7 @@ export default {
       // const baseURI =
       //   "https://thingproxy.freeboard.io/fetch/http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
       const baseURI =
-        "http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
+        "https://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
       axios
         .get(baseURI)
         .then(result => {

@@ -26,7 +26,7 @@ export default {
       this.loading = true;
       // replace `getPost` with your data fetching util / API wrapper
       const baseURI =
-        "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
+        "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
       axios
         .get(baseURI)
         .then(result => {
