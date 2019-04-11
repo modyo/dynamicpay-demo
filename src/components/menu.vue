@@ -19,12 +19,12 @@
   <header id="main-header">
     <div class="container d-flex">
       <g-link class="navbar-brand js-scroll-trigger" to="/" >
-        <img :alt="$static.metaData.siteName" :title="$static.metaData.siteName" src="https://cloud.modyocdn.com/uploads/d401ed2b-bd7a-4c0a-9b32-e9f1e427bb74/original/dynamic_bank.png" />
+        <img src="https://cloud.modyocdn.com/uploads/d401ed2b-bd7a-4c0a-9b32-e9f1e427bb74/original/dynamic_bank.png" />
       </g-link>
       <nav class="navbar ml-auto" id="mainNav">
         <ul class="nav ml-auto my-2 my-lg-0 d-flex">
-          <li class="nav-item" v-for="edge in $static.menu.edges" :key="edge.node.slug">
-            <g-link class="nav-link js-scroll-trigger" :to="edge.node.slug">{{edge.node.title}}</g-link>
+          <li class="nav-item" v-for="item in menu" :key="item.slug">
+            <g-link class="nav-link js-scroll-trigger" :to="item.slug">{{item.title}}</g-link>
           </li>
         </ul>
         <a href="#" class="btn btn-secondary mr-1">Online Banking</a>
