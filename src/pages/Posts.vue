@@ -1,40 +1,72 @@
 <template>
   <Layout>
     <section class="page-section bg-dark text-white">
-      <div v-for="edge in $page.posts.edges" :key="edge.node.id">
-        <h2>
-          {{ edge.node.title }} (
-          <code>id:</code>
-          {{edge.node.id}})
-        </h2>
-        {{edge.node}}
+      <div class="container">
+        <div v-if="loading">
+          <h2>Cargando....</h2>
+        </div>
+        <div v-else>
+          <div v-for="post in posts" :key="post.id">
+            <h2>{{ post.title }}</h2>
+            <h5>
+              <code>id:</code>
+              {{post.id}}
+            </h5>
+            <div v-html="post.description"/>
+          </div>
+        </div>
       </div>
     </section>
   </Layout>
 </template>
 
-<page-query>
-query Posts {
-  posts: allPosts {
-    edges {
-      node { 
-        id,
-        title,
-        fields { 
-            spaceId,
-            typeName
-         }
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
+import axios from "axios";
 import Layout from "~/layouts/Default.vue";
+
 export default {
   metaInfo: {
     title: "Posts"
+  },
+  created() {
+    this.fetchPosts();
+  },
+  data: () => {
+    return {
+      loading: false,
+      posts: [],
+      error: null
+    };
+  },
+  methods: {
+    fetchPosts: function() {
+      this.error = this.posts = [];
+      this.loading = true;
+      // replace `getPost` with your data fetching util / API wrapper
+      const baseURI =
+        "https://thingproxy.freeboard.io/fetch/http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
+      axios
+        .get(baseURI)
+        .then(result => {
+          // console.log("result.data.entries: ", result.data.entries);
+          const entries = result.data.entries;
+          let posts = [];
+          for (const entry of entries) {
+            // console.log("entry: ", entry);
+            const post = {
+              id: entry.meta.uuid,
+              title: entry.fields.Titulo,
+              description: entry.fields.Descripcion
+            };
+            this.posts.push(post);
+          }
+          this.loading = false;
+        })
+        .catch(error => {
+          // console.log(error.response);
+          this.error = error.response;
+        });
+    }
   }
 };
 </script>
