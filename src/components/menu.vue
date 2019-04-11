@@ -26,7 +26,7 @@ export default {
       this.loading = true;
       // replace `getPost` with your data fetching util / API wrapper
       const baseURI =
-        "https://thingproxy.freeboard.io/fetch/http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
+        "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
       axios
         .get(baseURI)
         .then(result => {

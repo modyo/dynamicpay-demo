@@ -44,8 +44,10 @@ export default {
       this.error = this.posts = [];
       this.loading = true;
       // replace `getPost` with your data fetching util / API wrapper
+      // const baseURI =
+      //   "https://thingproxy.freeboard.io/fetch/http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
       const baseURI =
-        "https://thingproxy.freeboard.io/fetch/http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
+        "http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
       axios
         .get(baseURI)
         .then(result => {

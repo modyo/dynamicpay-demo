@@ -16,7 +16,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-        <MainMenu></MainMenu>
+          <MainMenu></MainMenu>
         </div>
       </div>
     </nav>
@@ -40,13 +40,13 @@ query {
 </static-query>
 
 <script>
-  import MainMenu from '~/components/menu.vue'
+import MainMenu from "~/components/menu.vue";
 
-  export default {
-    components: {
-      MainMenu
-    }
+export default {
+  components: {
+    MainMenu
   }
+};
 </script>
 
 
