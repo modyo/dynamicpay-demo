@@ -35,46 +35,49 @@
   </div>
 </template>
 
-<static-query>
-query Menu {
-  menu: allMenu {
-    edges {
-      node {
-        title,
-        id,
-        slug
-      }
-    }
-  }
-  metaData {
-  siteName
-  }
-}
-
-
-
-</static-query>
-
 <script>
+import axios from "axios";
 export default {
   name: "MainMenu",
-  data() {
+  data: () => {
     return {
-      name: "",
-      rut: "",
-      noRut: false,
-      depto: "",
-      as: [],
-      deptoPanel: "",
-      parking: "",
-      parkingStatus: false
+      loading: false,
+      menu: [],
+      error: null
     };
   },
-  mounted() {
-    console.log("mounted");
-  },
   created() {
-    console.log("creado");
+    this.fetchMenu();
+  },
+  methods: {
+    fetchMenu: function() {
+      this.error = this.menu = [];
+      this.loading = true;
+      // replace `getPost` with your data fetching util / API wrapper
+      const baseURI =
+        "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
+      axios
+        .get(baseURI)
+        .then(result => {
+          // console.log("result.data.entries: ", result.data.entries);
+          const entries = result.data.entries;
+          let menu = [];
+          for (const item of entries) {
+            // console.log("item: ", item);
+            const menuItem = {
+              id: item.meta.uuid,
+              title: item.fields.Titulo,
+              slug: item.fields.Slug
+            };
+            this.menu.push(menuItem);
+          }
+          this.loading = false;
+        })
+        .catch(error => {
+          // console.log(error.response);
+          this.error = error.response;
+        });
+    }
   }
 };
 </script>
