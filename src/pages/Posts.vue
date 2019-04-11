@@ -55,7 +55,7 @@ export default {
             // console.log("entry: ", entry);
             const post = {
               id: entry.meta.uuid,
-              title: entry.fields.Titulo,
+              title: entry.fields.name,
               description: entry.fields.Descripcion
             };
             this.posts.push(post);
