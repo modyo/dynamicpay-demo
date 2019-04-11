@@ -2,7 +2,7 @@
   <div class="banner-1 py-5">
     <div class="container">
       <div class="row no-gutters">
-        <div class="col-md-4">
+        <div class="col-md-4 p-5">
           <h2>¡Descuentos todos los días!</h2>
           <p>Conoce los beneficios del mes de Abril</p>
           <div class="mt-4">
