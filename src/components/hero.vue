@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!posts.length">
-    Cargando
+  <div class="hero justify-content-center" v-if="!posts.length">
+    Cargando...
   </div>
   <div v-else class="hero" >
     <div class="container">

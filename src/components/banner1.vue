@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!posts.length">
-    Cargando
+  <div class="banner-1 py-5 justify-content-center" v-if="loading === true">
+    Cargando...
   </div>
   <div v-else class="banner-1 py-5">
     <div class="container">
