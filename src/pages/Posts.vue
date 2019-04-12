@@ -24,7 +24,6 @@
 <script>
 import axios from "axios";
 import Layout from "~/layouts/Default.vue";
-
 export default {
   metaInfo: {
     title: "Posts"
@@ -43,8 +42,7 @@ export default {
     fetchPosts: function() {
       this.error = this.posts = [];
       this.loading = true;
-      const baseURI =
-        "https://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries";
+      const baseURI = `${this.$api}/fintech/content_types/post/entries`;
       axios
         .get(baseURI)
         .then(result => {
