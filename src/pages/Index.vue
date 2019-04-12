@@ -16,7 +16,6 @@ import SecondBanner from '~/components/banner2.vue';
 export default {
   components: {
       Hero,
-      Promotions,
       MainBanner,
       SecondBanner
   },

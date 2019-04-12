@@ -44,7 +44,6 @@
               <g-link class="nav-link js-scroll-trigger" :to="item.slug">{{item.title}}</g-link>
             </li>
           </ul>
-          <a href="#" class="btn btn-secondary mr-1">Online Banking</a>
           <a href="#" class="btn btn-primary">Become a Client</a>
         </nav>
       </div>

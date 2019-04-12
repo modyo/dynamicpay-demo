@@ -12,12 +12,7 @@ export default function(Vue, { router, head, isClient }) {
   head.link.push(
     {
       rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
-    },
-    {
-      rel: "stylesheet",
-      href:
-        "https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+      href: "https://fonts.googleapis.com/css?family=Montserrat:300,400,700"
     }
   );
   Vue.use(BootstrapVue);
