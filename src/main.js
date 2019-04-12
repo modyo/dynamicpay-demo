@@ -6,8 +6,9 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "~/assets/base.css";
 import DefaultLayout from "~/layouts/Default.vue";
 
-export default function(Vue, { router, head, isClient }) {
+export default function(Vue, { appOptions, router, head, isClient }) {
   // Set default layout as a global component
+  Vue.prototype.$api = "http://dynamicbank.modyo.build/api/content/spaces";
   Vue.component("Layout", DefaultLayout);
   head.link.push(
     {
