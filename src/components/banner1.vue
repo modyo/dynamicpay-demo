@@ -1,5 +1,8 @@
 <template>
-  <div class="banner-1 py-5">
+  <div v-if="!posts.length">
+    Cargando
+  </div>
+  <div v-else class="banner-1 py-5">
     <div class="container">
       <div class="row no-gutters">
         <div class="col-md-6">
