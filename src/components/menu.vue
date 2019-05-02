@@ -40,8 +40,8 @@
         </g-link>
         <nav class="navbar ml-auto" id="mainNav">
           <ul class="nav ml-auto my-2 my-lg-0 d-flex">
-            <li class="nav-item" v-for="item in menu" :key="item.slug">
-              <g-link class="nav-link js-scroll-trigger" :to="item.slug">{{item.title}}</g-link>
+            <li class="nav-item" v-for="item in menu" :key="item.url">
+              <g-link class="nav-link js-scroll-trigger" :to="item.url">{{item.name}}</g-link>
             </li>
           </ul>
           <a href="#" class="btn btn-primary">Become a Client</a>
@@ -70,22 +70,25 @@ export default {
       this.error = this.menu = [];
       this.loading = true;
       const baseURI =
-        "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries";
+        "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu-item/entries";
       axios
         .get(baseURI)
         .then(result => {
           // console.log("result.data.entries: ", result.data.entries);
           const entries = result.data.entries;
-          let menu = [];
+          let menutmp = [];
           for (const item of entries) {
             // console.log("item: ", item);
             const menuItem = {
               id: item.meta.uuid,
-              title: item.fields.Titulo,
-              slug: item.fields.Slug
+              name: item.fields.name,
+              url: item.fields.url,
+              position: item.fields.position,
             };
-            this.menu.push(menuItem);
+              menutmp.push(menuItem);
           }
+          this.menu = menutmp.sort((a,b) => a.position - b.position)
+
           this.loading = false;
         })
         .catch(error => {
@@ -95,6 +98,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>
