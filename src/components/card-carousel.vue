@@ -23,13 +23,9 @@ export default {
   components: {
     CardItemCarousel,
     Carousel: () =>
-      import("vue-carousel")
-        .then(m => m.Carousel)
-        .catch(),
+      process.browser ? import("vue-carousel").then(m => m.Carousel) : null,
     Slide: () =>
-      import("vue-carousel")
-        .then(m => m.Slide)
-        .catch()
+      process.browser ? import("vue-carousel").then(m => m.Slide) : null
   },
   name: "card-carousel",
   data() {
