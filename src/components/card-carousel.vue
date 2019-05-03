@@ -1,16 +1,18 @@
 <template>
   <div class="container my-5">
-    <carousel :perPageCustom="[[768, 2], [1024, 3]]">
-      <slide v-for="entry in entries" :key="entry.id">
-        <div class="p-3 h-100">
-          <CardItemCarousel
-            :title="entry.fields.title"
-            :description="entry.fields.description"
-            :cover="entry.fields.cover.url"
-          ></CardItemCarousel>
-        </div>
-      </slide>
-    </carousel>
+    <ClientOnly>
+      <carousel :perPageCustom="[[768, 2], [1024, 3]]">
+        <slide v-for="entry in entries" :key="entry.id">
+          <div class="p-3 h-100">
+            <CardItemCarousel
+              :title="entry.fields.title"
+              :description="entry.fields.description"
+              :cover="entry.fields.cover.url"
+            ></CardItemCarousel>
+          </div>
+        </slide>
+      </carousel>
+    </ClientOnly>
   </div>
 </template>
 
