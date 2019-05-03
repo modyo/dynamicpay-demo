@@ -19,12 +19,17 @@
 <script>
 import CardItemCarousel from "./card-item-carousel";
 import axios from "axios";
-import { Carousel, Slide } from "vue-carousel";
 export default {
   components: {
     CardItemCarousel,
-    Carousel,
-    Slide
+    Carousel: () =>
+      import("vue-carousel")
+        .then(m => m.Carousel)
+        .catch(),
+    Slide: () =>
+      import("vue-carousel")
+        .then(m => m.Slide)
+        .catch()
   },
   name: "card-carousel",
   data() {
