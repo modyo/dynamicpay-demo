@@ -8,47 +8,28 @@ const axios = require("axios");
 
 module.exports = function(api) {
   api.loadSource(async store => {
-    const posts = await axios.get(
+    const { data } = await axios.get(
       "http://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/post/entries"
     );
 
-    const postsType = store.addContentType({
-      typeName: "Posts"
-    });
-    const menuType = store.addContentType({
-      typeName: "Menu"
+    const contentType = store.addContentType({
+      typeName: "BlogPosts"
+      // route: "blog/:slug" // add this for one dynamic route...
     });
 
-    for (const item of posts.data.entries) {
+    for (const item of data.entries) {
       const { meta, fields } = item;
-      const spaceId = meta.space;
-      const typeName = meta.type_name;
       const id = meta.uuid;
       const title = fields.Titulo;
       const desc = fields.Descripcion;
-      postsType.addNode({
+      const createdAt = meta.created_at;
+      contentType.addNode({
         id,
         title,
         content: desc,
-        fields: { spaceId, typeName }
-      });
-    }
-
-    const menu = await axios.get(
-      "http://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu/entries"
-    );
-    // console.log("===================================");
-    // console.log("menu.data: ", menu.data);
-    // console.log("===================================");
-    for (const item of menu.data.entries) {
-      const title = item.fields.Titulo;
-      const id = item.meta.uuid;
-      const slug = item.fields.slug;
-      menuType.addNode({
-        title,
-        id,
+        path: `blog/${id}`, //... or this for a route per item
         fields: {
-          slug
+          createdAt
         }
       });
     }
