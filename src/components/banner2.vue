@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-2 py-5">
+  <div class="banner-2 py-5" v-if="loading === false">
     <div class="container p-5" :style="{backgroundImage: 'url(' + entry.cover.url + ')'}">
       <div class="row no-gutters">
         <div class="col-md-8"></div>
