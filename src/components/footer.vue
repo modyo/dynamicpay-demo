@@ -31,7 +31,7 @@
             console.log("mounted");
         },
         created() {
-            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/footer/entries/64df5949-27be-413b-99ed-9c40007daac4";
+            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/static-data/types/footer/entries/64df5949-27be-413b-99ed-9c40007daac4";
             axios
                 .get(baseURI)
                 .then(result => {
@@ -51,7 +51,7 @@
                 this.error = this.menu = [];
                 this.loading = true;
                 const baseURI =
-                    "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu-item/entries";
+                    "https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries";
                 axios
                     .get(baseURI)
                     .then(result => {

@@ -70,7 +70,7 @@ export default {
       this.error = this.menu = [];
       this.loading = true;
       const baseURI =
-        "https://dynamicbank.modyo.build/api/content/spaces/static-data/content_types/menu-item/entries";
+        "https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries";
       axios
         .get(baseURI)
         .then(result => {

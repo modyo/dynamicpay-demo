@@ -30,7 +30,7 @@ export default {
   },
   created() {
     const baseURI =
-      "https://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/hero/entries";
+      "https://dynamicbank.modyo.build/api/content/spaces/fintech/types/hero/entries";
     axios
       .get(baseURI)
       .then(result => {

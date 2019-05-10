@@ -36,7 +36,7 @@ export default {
   },
   created() {
     const baseURI =
-      "https://dynamicbank.modyo.build/api/content/spaces/fintech/content_types/card/entries/?meta.tag=carousel-home";
+      "https://dynamicbank.modyo.build/api/content/spaces/fintech/types/card/entries/?meta.tag=carousel-home";
     axios
       .get(baseURI)
       .then(result => {
