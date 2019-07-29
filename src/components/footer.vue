@@ -35,7 +35,7 @@
             axios
                 .get(baseURI)
                 .then(result => {
-                    this.hint = result.data.fields.footer_hint;
+                    this.hint = result.data.entries[0].fields.footer_hint;
                     this.loading = false;
 
                 })

@@ -37,7 +37,7 @@
             axios
                 .get(baseURI)
                 .then(result => {
-                    this.entry = result.data.fields;
+                    this.entry = result.data.entries[0].fields;
                     this.loading = false;
                 })
                 .catch(error => {
