@@ -9,7 +9,7 @@ const axios = require("axios");
 module.exports = function(api) {
   api.loadSource(async store => {
     const { data } = await axios.get(
-      "http://dynamicbank.modyo.build/api/content/spaces/fintech/types/post/entries"
+      "https://dynamicbank.modyo.build/api/content/spaces/fintech/types/card/entries"
     );
 
     const contentType = store.addContentType({
