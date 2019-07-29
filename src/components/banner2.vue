@@ -29,7 +29,7 @@
             }
         },
         created() {
-            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/fintech/types/card/entries/98be18a0-ad18-4670-941f-5c6f1a0335d1";
+            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/fintech/types/card/entries?meta.tag=banner2";
             axios
                 .get(baseURI)
                 .then(result => {
