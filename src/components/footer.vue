@@ -31,7 +31,7 @@
             console.log("mounted");
         },
         created() {
-            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/static-data/types/footer/entries/90626ff5-7375-4d50-8248-09f7c7417788";
+            const baseURI = "https://dynamicbank.modyo.build/api/content/spaces/static-data/types/footer/entries/f2740b44-0eb4-4d94-bc53-1384ce88db7c";
             axios
                 .get(baseURI)
                 .then(result => {
