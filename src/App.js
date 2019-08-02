@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
+import logo from './images/logo.png'
 import Home from "./Home";
 import Blog from "./Blog";
 import PostShow from "./PostShow";
@@ -46,17 +47,25 @@ class App extends React.Component {
     return (
       // dynamic component
       <Router>
-        <header>
           {/* Acá está bien, se parsea lo que venga */}
-          <ul>
-            {menu.map((item, i) => (
-              <li key={i}>
-                <Link to={`${item.url}`}>{item.name}</Link>
-              </li>
-            ))}
-          </ul>
+          <header className="fixed-top scroll-change" data-menu-anima="fade-bottom">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex">
+              <a className="navbar-brand" href="#">
+                <img src={logo} />
+              </a>
 
-          <hr />
+              <div className="ml-auto" id="navbarNav">
+                <ul className="navbar-nav">
+                  {menu.map((item, i) => (
+                    <li className="nav-item" key={i}>
+                      <Link className="nav-link" to={`${item.url}`}>{item.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </nav>
+                               
+                           
           {/* 
           Acá no. Posibles soluciones: 
           - https://stackoverflow.com/questions/48854497/dynamic-routing-in-react-js-component-name-from-a-string-cannot-be-assigned-in

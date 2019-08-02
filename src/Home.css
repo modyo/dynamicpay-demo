@@ -1,0 +1,12 @@
+.section-bg-image {
+    background-image:url(./img-stock/bg-14.png);
+    background-position: top center
+}
+
+.img-box {
+    padding: 1.5rem;
+}
+
+.logos {
+    padding: 3rem 0;
+}

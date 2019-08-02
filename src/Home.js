@@ -1,10 +1,53 @@
-import React from "react";
+import React, {Fragment} from "react";
+import './Home.css';
+import img1 from './img-stock/logos/white/logo_1.png'
+import img2 from './img-stock/logos/white/logo_2.png'
+import img3 from './img-stock/logos/white/logo_3.png'
+import img4 from './img-stock/logos/white/logo_4.png'
+import img5 from './img-stock/logos/white/logo_5.png'
 
 function Home() {
   return (
-    <div>
-      <h2>Home</h2>
-    </div>
+    <Fragment>
+      <div className="section py-5">
+        <div className="container">
+          larry
+        </div>
+      </div>
+    <div className="section-bg-image bg-top">
+      <div className="container content">
+          <div className="logos">
+              <ul className="slides d-flex">
+                  <li>
+                      <a className="img-box" href="#">
+                          <img src={img1} alt="" />
+                      </a>
+                  </li>
+                  <li>
+                      <a className="img-box" href="#">
+                      <img src={img2} alt="" />
+                      </a>
+                  </li>
+                  <li>
+                      <a className="img-box" href="#">
+                      <img src={img3} alt="" />
+                      </a>
+                  </li>
+                  <li>
+                      <a className="img-box" href="#">
+                      <img src={img4} alt="" />
+                      </a>
+                  </li>
+                  <li>
+                      <a className="img-box" href="#">
+                      <img src={img5} alt="" />
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+    </Fragment>
   );
 }
 
