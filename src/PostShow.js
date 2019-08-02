@@ -44,16 +44,29 @@ class PostShow extends React.Component {
     const { entry } = this.state;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
-      <div>
-        {entry ? (
-          <>
-            <h3>{entry.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: entry.description }} />
-            <img src={entry.covers ? entry.covers[0].url : null} alt="Cover" />
-          </>
-        ) : (
-          "Cargando"
-        )}
+      <div className="post-show mt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+
+{entry ? (
+  <>
+    <div className="main-cover">
+      <img src={entry.covers ? entry.covers[0].url : null} alt="Cover" />
+      <h1>{entry.title}</h1>
+    </div>
+    <div className="mb-5" dangerouslySetInnerHTML={{ __html: entry.description }} />
+    
+  </>
+) : (
+  "Cargando"
+)}
+
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

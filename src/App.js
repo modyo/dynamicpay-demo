@@ -48,10 +48,12 @@ class App extends React.Component {
       // dynamic component
       <Router>
           {/* Acá está bien, se parsea lo que venga */}
-          <header className="fixed-top scroll-change" data-menu-anima="fade-bottom">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex">
-              <a className="navbar-brand" href="#">
-                <img src={logo} />
+          
+          <header data-menu-anima="fade-bottom">
+          <div className="container">
+            <nav className="navbar navbar-expand-lg navbar-light d-flex">
+              <a className="navbar-brand" href="/">
+                <img src={logo} alt="" />
               </a>
 
               <div className="ml-auto" id="navbarNav">
@@ -64,7 +66,7 @@ class App extends React.Component {
                 </ul>
               </div>
             </nav>
-                               
+            </div>       
                            
           {/* 
           Acá no. Posibles soluciones: 
@@ -80,11 +82,58 @@ class App extends React.Component {
             <Route key={i + 1} exact path={item.path} component={item.label} />
           );
         })*/}
+        </header>
           <Route exact path="/" component={Home} />
           <Route path="/plans" component={Plans} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blog/:postId" component={PostShow} />
-        </header>
+
+
+          <footer className="footer-base">
+          <div className="content">
+              <div className="container">
+                  <div className="row">
+                      <div className="col-md-3 footer-center text-left">
+                          <img width="120" src={logo} alt="" />
+                      </div>
+                      <div className="col-md-6 footer-left text-left">
+                          <p>Collins Street West 8007, San Fransico, United States.</p>
+                          <div className="tag-row">
+                              <span>support@company.com</span>
+                              <span>+02 3205550678</span>
+                          </div>
+                      </div>
+                      <div className="col-md-3 footer-left text-right text-left-sm">
+                          <div className="btn-group social-group btn-group-icons">
+                              <a target="_blank" href="#" data-social="share-facebook">
+                                  <i className="fa fa-facebook text-xs circle"></i>
+                              </a>
+                              <a target="_blank" href="#" data-social="share-twitter">
+                                  <i className="fa fa-twitter text-xs circle"></i>
+                              </a>
+                              <a target="_blank" href="#" data-social="share-google">
+                                  <i className="fa fa-google-plus text-xs circle"></i>
+                              </a>
+                              <a target="_blank" href="#" data-social="share-linkedin">
+                                  <i className="fa fa-linkedin text-xs circle"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div className="row copy-row">
+                  <div className="col-md-12 copy-text">
+                      © 2018 Signflow - Multipurpose &amp; Tech Business Template <span>Handmade by <a href="http://schiocco.io/">schiocco.io</a></span>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+
+
+
+
+
       </Router>
     );
   }

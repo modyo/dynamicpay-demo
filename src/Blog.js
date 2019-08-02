@@ -42,17 +42,26 @@ class Blog extends React.Component {
     console.log("BLOG this.props: ", this.props);
     const { blogEntries, isLoading } = this.state;
     return (
-      <div>
-        <h2>Blog</h2>
-        <ul>
+      <div className="blog">
+        <div className="container">
+        <h2 className="mb-5">Blog</h2>
+        <div className="posts row">
           {blogEntries.map((item, i) => (
-            <li key={i}>
-              <Link to={`/blog/${item.uuid}`}>
-                {item.title} - {item.uuid}
-              </Link>
-            </li>
+            <div className="col-md-4" key={item.uuid}>
+            <div className="card mb-4">
+              <img src={item.covers[0].url} alt="" />
+              <div className="card-body">
+                <h3 className="h5"><Link to={`/blog/${item.uuid}`}>
+                  {item.title}
+                </Link></h3>
+                <p>{item.excerpt}</p>
+                <a href={`/blog/${item.uuid}`} className="btn btn-link">+  Leer más</a>
+              </div>
+            </div>
+            </div>
           ))}
-        </ul>
+        </div>
+      </div>
       </div>
     );
   }
