@@ -1,54 +1,77 @@
-import React, {Fragment} from "react";
-import './Home.css';
-import img1 from './img-stock/logos/white/logo_1.png'
-import img2 from './img-stock/logos/white/logo_2.png'
-import img3 from './img-stock/logos/white/logo_3.png'
-import img4 from './img-stock/logos/white/logo_4.png'
-import img5 from './img-stock/logos/white/logo_5.png'
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Client, Conditions } from "./sdk";
+import "./Home.css";
+import Hero from "./Hero";
+import Brands from "./Brands";
 
-function Home() {
-  return (
-    <Fragment>
-      <div className="section py-5">
-        <div className="container">
-          larry
-        </div>
-      </div>
-    <div className="section-bg-image bg-top">
-      <div className="container content">
-          <div className="logos">
-              <ul className="slides d-flex">
-                  <li>
-                      <a className="img-box" href="#">
-                          <img src={img1} alt="" />
-                      </a>
-                  </li>
-                  <li>
-                      <a className="img-box" href="#">
-                      <img src={img2} alt="" />
-                      </a>
-                  </li>
-                  <li>
-                      <a className="img-box" href="#">
-                      <img src={img3} alt="" />
-                      </a>
-                  </li>
-                  <li>
-                      <a className="img-box" href="#">
-                      <img src={img4} alt="" />
-                      </a>
-                  </li>
-                  <li>
-                      <a className="img-box" href="#">
-                      <img src={img5} alt="" />
-                      </a>
-                  </li>
-              </ul>
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      blocks: [],
+      hero: null,
+      isLoadingHero: false,
+      isLoading: false
+    };
+  }
+  componentDidMount() {
+    this.setState({ isLoadingHero: true, isLoading: true });
+    // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
+    // CORS problems
+    const homeClient = new Client("https://dynamicbank.modyo.build/api", {
+      spaceUID: "fintech"
+    });
+    homeClient
+      .getEntries("card")
+      .then(response => response)
+      .then(data => {
+        let items = [];
+        for (let index = 0; index < data.entries.length; index++) {
+          const item = data.entries[index].fields;
+          items.push(item);
+        }
+        this.setState({ blocks: items, isLoading: false });
+      });
+    const heroClient = new Client("https://dynamicbank.modyo.build/api", {
+      spaceUID: "fintech"
+    });
+    heroClient
+      .getEntries("hero")
+      .then(response => response)
+      .then(data => {
+        console.log("HERO data: ", data.entries[0].fields);
+        // for (let index = 0; index < data.entries.length; index++) {
+        //   const item = data.entries[index].fields;
+        //   items.push(item);
+        // }
+        this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
+      });
+  }
+  render() {
+    const { blocks, hero, isLoadingHero, isLoading } = this.state;
+    console.log("blocks: ", blocks);
+    console.log("isLoading: ", isLoading);
+    return (
+      <Fragment>
+        <Hero hero={hero} isLoadingHero={isLoadingHero} />
+        <div className="section py-5">
+          <div className="container">
+            {blocks.map((item, i) => (
+              <li className="nav-item" key={i}>
+                <Link className="nav-link" to={`${item.url}`}>
+                  {item.title}
+                </Link>
+                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                <img src={item.cover.url} alt={item.cover.title} />
+              </li>
+            ))}
           </div>
-      </div>
-  </div>
-    </Fragment>
-  );
+        </div>
+        <Brands />
+      </Fragment>
+    );
+  }
 }
 
 export default Home;
