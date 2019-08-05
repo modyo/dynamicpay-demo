@@ -44,30 +44,37 @@ class Blog extends React.Component {
     return (
       <div className="blog">
         <div className="container">
-        <h2 className="mb-5">Blog</h2>
-    {isLoading ? (<div className="loading"><div class="spinner-border text-secondary" role="status">
-  <span class="sr-only">Loading...</span>
-</div> <span className="ml-4">Cargando...</span></div>) : 
-        (<div className="posts row">
-        {blogEntries.map((item, i) => (
-          <div className="col-md-4 mb-4" key={item.uuid}>
-          <div className="card">
-            <div className="card-header">
-              <img src={item.covers[0].url} alt="" />
+          <h2 className="mb-5">Blog</h2>
+          {isLoading ? (
+            <div className="loading">
+              <div className="spinner-border text-secondary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>{" "}
+              <span className="ml-4">Cargando...</span>
             </div>
-            <div className="card-body">
-              <h3 className="h5"><Link to={`/blog/${item.uuid}`}>
-                {item.title}
-              </Link></h3>
-              <p>{item.excerpt}</p>
-              <a href={`/blog/${item.uuid}`} className="btn btn-link">+  Leer más</a>
+          ) : (
+            <div className="posts row">
+              {blogEntries.map((item, i) => (
+                <div className="col-md-4 mb-4" key={item.uuid}>
+                  <div className="card">
+                    <div className="card-header">
+                      <img src={item.covers[0].url} alt="" />
+                    </div>
+                    <div className="card-body">
+                      <h3 className="h5">
+                        <Link to={`/blog/${item.uuid}`}>{item.title}</Link>
+                      </h3>
+                      <p>{item.excerpt}</p>
+                      <a href={`/blog/${item.uuid}`} className="btn btn-link">
+                        + Leer más
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-          </div>
-        ))}
-      </div>
-    )}
-    </div>    
+          )}
+        </div>
       </div>
     );
   }
