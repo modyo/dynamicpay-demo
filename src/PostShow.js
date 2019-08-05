@@ -42,7 +42,7 @@ class PostShow extends React.Component {
   }
   render() {
     // console.log("AAA Post: ", this.props);
-    console.log(this.state.isLoading2, "ivanchu");
+    console.log(this.state.isLoading2, "larry2");
     const { entry } = this.state;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
@@ -60,6 +60,8 @@ class PostShow extends React.Component {
       <img src={entry.covers ? entry.covers[0].url : null} alt="Cover" />
       <h1>{entry.title}</h1>
     </div>
+    <div className="mb-5 h5 text-bold" dangerouslySetInnerHTML={{ __html: entry.excerpt }} />
+    <hr />
     <div className="mb-5" dangerouslySetInnerHTML={{ __html: entry.description }} />
     
   </div>
