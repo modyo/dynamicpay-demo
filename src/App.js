@@ -106,16 +106,16 @@ class App extends React.Component {
                       <div className="col-md-3 footer-left text-right text-left-sm">
                           <div className="btn-group social-group btn-group-icons">
                               <a target="_blank" href="#" data-social="share-facebook">
-                                  <i className="fa fa-facebook text-xs circle"></i>
+                                  <i className="mdi mdi-facebook" />
                               </a>
                               <a target="_blank" href="#" data-social="share-twitter">
-                                  <i className="fa fa-twitter text-xs circle"></i>
+                                  <i className="mdi mdi-twitter" />
                               </a>
                               <a target="_blank" href="#" data-social="share-google">
-                                  <i className="fa fa-google-plus text-xs circle"></i>
+                                  <i className="mdi mdi-google" />
                               </a>
                               <a target="_blank" href="#" data-social="share-linkedin">
-                                  <i className="fa fa-linkedin text-xs circle"></i>
+                                  <i className="mdi mdi-linkedin" />
                               </a>
                           </div>
                       </div>

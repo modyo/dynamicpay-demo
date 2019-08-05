@@ -8889,11 +8889,6 @@ hr {
         padding-right: 40px;
     }
 
-    .row, .row.vertical-row:not(.box-middle) {
-        margin-left: -40px;
-        margin-right: -40px;
-    }
-
     [class*="col-md-"].boxed, [class*="col-md-"].boxed-inverse {
         margin: 0 40px;
     }
@@ -10959,4 +10954,46 @@ RESPONSIVE
   font-size: 48px;
   line-height: 1.3;
   font-weight: bold;
+}
+
+.navbar {
+  padding: 2rem 0;
+}
+
+
+body {
+  background: #f7f9fd;
+}
+
+.card {
+  border: 0;
+  box-shadow: 0 0 3px rgba(0,0,0,.1);
+  height: 100%;
+}
+
+.card h3 a {
+  color: #375093;
+}
+
+.card-header {
+  border: 0;
+  background: none;
+  padding: 0;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card .btn-link {
+  text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.loading {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  justify-content: center;
+  
 }
