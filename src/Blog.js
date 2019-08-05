@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
 
 class Blog extends React.Component {
@@ -38,8 +38,8 @@ class Blog extends React.Component {
       });
   }
   render() {
-    console.log("BLOG this.state.blogEntries: ", this.state.blogEntries);
-    console.log("BLOG this.props: ", this.props);
+    // console.log("BLOG this.state.blogEntries: ", this.state.blogEntries);
+    // console.log("BLOG this.props: ", this.props);
     const { blogEntries, isLoading } = this.state;
     return (
       <div className="blog">

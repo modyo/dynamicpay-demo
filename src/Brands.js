@@ -12,27 +12,27 @@ function Brands() {
         <div className="logos">
           <ul className="slides d-flex">
             <li>
-              <a className="img-box" href="#">
+              <a className="img-box" href="/#dummy-link">
                 <img src={img1} alt="" />
               </a>
             </li>
             <li>
-              <a className="img-box" href="#">
+              <a className="img-box" href="/#dummy-link">
                 <img src={img2} alt="" />
               </a>
             </li>
             <li>
-              <a className="img-box" href="#">
+              <a className="img-box" href="/#dummy-link">
                 <img src={img3} alt="" />
               </a>
             </li>
             <li>
-              <a className="img-box" href="#">
+              <a className="img-box" href="/#dummy-link">
                 <img src={img4} alt="" />
               </a>
             </li>
             <li>
-              <a className="img-box" href="#">
+              <a className="img-box" href="/#dummy-link">
                 <img src={img5} alt="" />
               </a>
             </li>

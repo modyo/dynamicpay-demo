@@ -4,7 +4,6 @@ import { Client, Conditions } from "./sdk";
 import "./Home.css";
 import Hero from "./Hero";
 import Brands from "./Brands";
-import { helpers } from "handlebars";
 
 class Home extends React.Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class Home extends React.Component {
       .getEntries("hero")
       .then(response => response)
       .then(data => {
-        console.log("HERO data: ", data.entries[0].fields);
+        // console.log("HERO data: ", data.entries[0].fields);
         // for (let index = 0; index < data.entries.length; index++) {
         //   const item = data.entries[index].fields;
         //   items.push(item);
@@ -51,56 +50,76 @@ class Home extends React.Component {
   }
   render() {
     const { blocks, hero, isLoadingHero, isLoading } = this.state;
-    console.log("blocks: ", blocks);
-    console.log("isLoading: ", isLoading);
+    // console.log("blocks: ", blocks);
+    // console.log("isLoading: ", isLoading);
     return (
       <Fragment>
         <Hero hero={hero} isLoadingHero={isLoadingHero} />
         <div className="section py-5">
           <div className="container">
             <div className="d-flex carousel-home">
-            {blocks.map((item, i) => (
-               item.meta.tags[0] === "carousel-home" ? <div className="card flex-1 mx-3" key={i}>
-               <div className="card-header"><img src={item.fields.cover.url} alt={item.fields.cover.title} /></div>
-               <h5><Link className="nav-link" to={`${item.fields.url}`}>
-                 {item.fields.title}
-               </Link>
-               </h5>
-               <div className="p-3" dangerouslySetInnerHTML={{ __html: item.fields.description }} />
-             </div> : ''
-            ))}
-          </div>
+              {blocks.map((item, i) =>
+                item.meta.tags[0] === "carousel-home" ? (
+                  <div className="card flex-1 mx-3" key={i}>
+                    <div className="card-header">
+                      <img
+                        src={item.fields.cover.url}
+                        alt={item.fields.cover.title}
+                      />
+                    </div>
+                    <h5>
+                      <Link className="nav-link" to={`${item.fields.url}`}>
+                        {item.fields.title}
+                      </Link>
+                    </h5>
+                    <div
+                      className="p-3"
+                      dangerouslySetInnerHTML={{
+                        __html: item.fields.description
+                      }}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
           </div>
         </div>
-
 
         <div className="section py-5 bg-white">
-          
-            {blocks.map((item, i) => (
-               item.meta.tags[0] === "banner2" ? 
-               <div className="container bg-banner2 p-5" style={{backgroundImage: `url(${item.fields.cover.url}`}}>
-               <div className="row no-gutters">
-                 <div className="col-md-8"></div>
-                 <div className="col-md-4">
-                  <div className="bg-white p-5">
-                    <h2>{item.fields.title}</h2>
-                    <p dangerouslySetInnerHTML={{ __html: item.fields.description }} />
-                  <Link className="btn btn-primary mt-4" to={`${item.fields.url}`}>
-                    {item.fields.title}
-                  </Link>
-                  </div>
+          {blocks.map((item, i) =>
+            item.meta.tags[0] === "banner2" ? (
+              <div
+                className="container bg-banner2 p-5"
+                style={{ backgroundImage: `url(${item.fields.cover.url}` }}
+                key={i}
+              >
+                <div className="row no-gutters">
+                  <div className="col-md-8" />
+                  <div className="col-md-4">
+                    <div className="bg-white p-5">
+                      <h2>{item.fields.title}</h2>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: item.fields.description
+                        }}
+                      />
+                      <Link
+                        className="btn btn-primary mt-4"
+                        to={`${item.fields.url}`}
+                      >
+                        {item.fields.title}
+                      </Link>
+                    </div>
                   </div>
                 </div>
-               </div>
-               
-               : ''
-            ))}
-          
+              </div>
+            ) : (
+              ""
+            )
+          )}
         </div>
-
-
-
-
 
         <Brands />
       </Fragment>
