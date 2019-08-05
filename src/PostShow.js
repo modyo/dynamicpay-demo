@@ -7,11 +7,12 @@ class PostShow extends React.Component {
 
     this.state = {
       entry: "undefined",
-      isLoading2: true
+      isLoading: false
     };
   }
   componentDidMount() {
-    console.log(this.state.isLoading2, "larry");
+    this.setState({ isLoadingHero: true, isLoading: true });
+    console.log("componentDidMount isLoading", this.state.isLoading);
     // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
     // CORS problems
     const id = this.props.match.params.postId;
@@ -36,38 +37,42 @@ class PostShow extends React.Component {
       const itemData = d.entries[0].fields;
       const itemUUID = d.entries[0].meta;
       const item = { ...itemData, ...itemUUID };
-      this.setState({ entry: item, isLoading2: true });
+      this.setState({ entry: item, isLoading: true });
     });
-    
   }
   render() {
     // console.log("AAA Post: ", this.props);
-    console.log(this.state.isLoading2, "larry2");
+    console.log("render isLoading", this.state.isLoading);
     const { entry } = this.state;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
       <div className="post-show mt-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-2"></div>
+            <div className="col-md-2" />
             <div className="col-md-8">
-
-{this.state.loading2 === true ? (<div className="loading"><div class="spinner-border text-secondary" role="status">
-<span class="sr-only">Loading...</span>
-</div> <span className="ml-4">Cargando...</span></div>) : (
-  <div>
-    <div className="main-cover">
-      <img src={entry.covers ? entry.covers[0].url : null} alt="Cover" />
-      <h1>{entry.title}</h1>
-    </div>
-    <div className="mb-5 h5 text-bold" dangerouslySetInnerHTML={{ __html: entry.excerpt }} />
-    <hr />
-    <div className="mb-5" dangerouslySetInnerHTML={{ __html: entry.description }} />
-    
-  </div>
-) }
-
-
+              {this.state.loading === true ? (
+                <div className="loading">
+                  <div class="spinner-border text-secondary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>{" "}
+                  <span className="ml-4">Cargando...</span>
+                </div>
+              ) : (
+                <div>
+                  <div className="main-cover">
+                    <img
+                      src={entry.covers ? entry.covers[0].url : null}
+                      alt="Cover"
+                    />
+                    <h1>{entry.title}</h1>
+                  </div>
+                  <div
+                    className="mb-5"
+                    dangerouslySetInnerHTML={{ __html: entry.description }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
