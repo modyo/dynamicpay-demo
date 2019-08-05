@@ -38,10 +38,11 @@ class PostShow extends React.Component {
       const item = { ...itemData, ...itemUUID };
       this.setState({ entry: item, isLoading2: true });
     });
-    console.log(this.state.isLoading2, "larry2");
+    
   }
   render() {
     // console.log("AAA Post: ", this.props);
+    console.log(this.state.isLoading2, "ivanchu");
     const { entry } = this.state;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
