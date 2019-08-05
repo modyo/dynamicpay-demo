@@ -14,3 +14,7 @@
 .bg-banner2 {
     background-size: cover;
 }
+
+.carousel-home .card h5 a {
+    color: #375093
+}

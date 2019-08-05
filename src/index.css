@@ -1047,6 +1047,7 @@ div.full-width-menu .inner .dropdown-submenu:hover > a:after, div.full-width-men
 
 .navbar-brand {
   margin-right: 15px;
+  height: auto !important;
 }
 
 .search-box-menu {
