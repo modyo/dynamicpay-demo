@@ -37,7 +37,7 @@ class Home extends React.Component {
       spaceUID: "fintech"
     });
     heroClient
-      .getEntries("hero")
+      .getEntries("hero", "meta.tag=hero-home")
       .then(response => response)
       .then(data => {
         // console.log("HERO data: ", data.entries[0].fields);
