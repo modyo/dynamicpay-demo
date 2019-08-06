@@ -7,6 +7,7 @@ import Blog from "./Blog";
 import PostShow from "./PostShow";
 import Invite from "./Invite"
 import Plans from "./Plans"
+import AboutUs from "./AboutUs"
 
 
 class App extends React.Component {
@@ -92,6 +93,7 @@ class App extends React.Component {
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/invita" component={Invite} />
         <Route exact path="/plans" component={Plans} />
+        <Route exact path="/nosotros" component={AboutUs} />
         <Route exact path="/blog/:postId" component={PostShow} />
 
         <footer className="footer-base">
