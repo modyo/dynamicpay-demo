@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import HeroPlans from './HeroPlans'
 import { Client, Conditions } from "./sdk";
 import Loading from "./Loading"
@@ -8,7 +8,8 @@ export default class Plans extends Component {
     super(props)
 
     this.state = {
-      hero: null
+      hero: null,
+      plans: null
     }
   }
 
@@ -35,9 +36,14 @@ export default class Plans extends Component {
 
   render() {
     return (
-      <div className="plans-layout">  
-          {this.state.hero ? <HeroPlans hero={this.state.hero[0]} /> : <Loading title="Cargando..." />}
-      </div>
+        <Fragment>
+        <div className="plans-layout">  
+            {this.state.hero ? <HeroPlans hero={this.state.hero[0]} /> : <Loading title="Cargando..." />}
+        </div>
+        <div className="plans-list">
+            {this.state.plans ? <HeroPlans hero={this.state.hero[0]} /> : <Loading title="Cargando..." />}
+        </div>
+      </Fragment>
     )
   }
 }
