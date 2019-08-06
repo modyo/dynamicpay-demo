@@ -55,9 +55,9 @@ export default class AboutUs extends Component {
     <div class="container content">
       <div class="row">
         <div class="col-md-6 col-center text-center boxed-inverse shadow-1">
-          <h4>Join our services</h4>
+          <h4>Revisa nuestros servicios</h4>
           <p>Lorem ipsum dolor sit amet consectetur adip ullamco laboris nisi utla pariature tempore marto.</p>
-          <a href="#" class="btn btn-primary btn-lg">Join</a>
+          <a href="#" class="btn btn-primary btn-lg">Servicios</a>
         </div>
       </div>
     </div>
