@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
 import logo from "./images/logo.png";
 import Home from "./Home";
@@ -62,9 +62,9 @@ class App extends React.Component {
                 <ul className="navbar-nav">
                   {menu.map((item, i) => (
                     <li className="nav-item" key={i}>
-                      <Link className="nav-link" to={`${item.url}`}>
+                      <NavLink to={item.url}>
                         {item.name}
-                      </Link>
+                      </NavLink>
                     </li>
                   ))}
                 </ul>

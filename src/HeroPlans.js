@@ -9,9 +9,9 @@ const stylesHero = {
 export default function HeroInvite(props){
   if(props.length === 0) return <div>Cargando...</div>
   return (
-    <div class="header-title" style={{...stylesHero, backgroundImage: `url(${props.hero.Cover.url})`}}>
+    <div className="header-title mt-0" style={{...stylesHero, backgroundImage: `url(${props.hero.Cover.url})`}}>
       
-          <div class="title-base d-flex align-items-center h-100 p-5">
+          <div className="title-base d-flex align-items-center h-100 p-5">
               <div>
                 <h1>{props.hero.Title}</h1>
                 <p dangerouslySetInnerHTML={{ __html: props.hero.Description }} />

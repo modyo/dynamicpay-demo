@@ -1,0 +1,27 @@
+.plan-item {
+    box-shadow: 0 0 100px rgba(0,0,0,.1);
+}
+.pricing-name {
+    padding: 10px 35px 0;
+}
+.pricing-price {
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 60px;
+    padding: 10px 35px 10px 35px;
+    color: #0e1a35;
+}
+.pricing-price span:last-child {
+    font-size: 24px;
+    display: inline-block;
+    opacity: .5;
+    font-weight: normal;
+}
+
+.pricing-price span.sign {
+    font-weight: 600;
+    font-size: 40px;
+    transform: translate3d(-2px,-2px,0);
+    opacity: .5;
+}
+
