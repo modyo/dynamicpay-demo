@@ -12,7 +12,7 @@ class PostShow extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    console.log("componentDidMount isLoading", this.state.isLoading);
+    // console.log("componentDidMount isLoading", this.state.isLoading);
     // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
     // CORS problems
     const id = this.props.match.params.postId;
@@ -37,12 +37,12 @@ class PostShow extends React.Component {
       const itemData = d.entries[0].fields;
       const itemUUID = d.entries[0].meta;
       const item = { ...itemData, ...itemUUID };
-      this.setState({ entry: item, isLoading: true });
+      this.setState({ entry: item, isLoading: false });
     });
   }
   render() {
     // console.log("AAA Post: ", this.props);
-    console.log("render isLoading", this.state.isLoading);
+    // console.log("render isLoading", this.state.isLoading);
     const { entry } = this.state;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
@@ -60,13 +60,12 @@ class PostShow extends React.Component {
                 </div>
               ) : (
                 <div>
-                  <div className="main-cover">
-                    <img
-                      src={entry.covers ? entry.covers[0].url : null}
-                      alt="Cover"
-                    />
-                    <h1>{entry.title}</h1>
-                  </div>
+                  {entry.covers ? (
+                    <div className="main-cover">
+                      <img src={entry.covers[0].url} alt="Cover" />
+                      <h1>{entry.title}</h1>
+                    </div>
+                  ) : null}
                   <div
                     className="mb-5"
                     dangerouslySetInnerHTML={{ __html: entry.description }}
