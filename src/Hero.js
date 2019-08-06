@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import Loading from './Loading'
 
 const layout = function(props) {
   const { hero } = props;
@@ -38,7 +39,7 @@ function Hero(props) {
   // console.log("props: ", props);
   const { hero } = props;
 
-  return hero ? layout(props) : <div className="loading">Cargando...</div>;
+  return hero ? layout(props) : <Loading title="Cargando..." />;
 }
 
 export default Hero;

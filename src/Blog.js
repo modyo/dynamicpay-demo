@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
+import Loading from "./Loading"
 
 class Blog extends React.Component {
   constructor(props) {
@@ -46,12 +47,7 @@ class Blog extends React.Component {
         <div className="container">
           <h2 className="mb-5">Blog</h2>
           {isLoading ? (
-            <div className="loading">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>{" "}
-              <span className="ml-4">Cargando...</span>
-            </div>
+            <Loading title="Cargando..." />
           ) : (
             <div className="posts row">
               {blogEntries.map((item, i) => (
