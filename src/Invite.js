@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import HeroInvite from './HeroInvite'
 import { Client, Conditions } from "./sdk";
+import Loading from "./Loading"
 
 export default class Invite extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class Invite extends Component {
   render() {
     return (
       <div className="invite-layout">  
-          {this.state.hero ? <HeroInvite hero={this.state.hero[0]} /> : ''}
+          {this.state.hero ? <HeroInvite hero={this.state.hero[0]} /> : <Loading title="Cargando..." />}
       </div>
     )
   }

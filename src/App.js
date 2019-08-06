@@ -8,6 +8,7 @@ import PostShow from "./PostShow";
 import Invite from "./Invite"
 import Plans from "./Plans"
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -62,7 +63,7 @@ class App extends React.Component {
                 <ul className="navbar-nav">
                   {menu.map((item, i) => (
                     <li className="nav-item" key={i}>
-                      <NavLink to={item.url}>
+                      <NavLink className="nav-link" activeClassName={item.url === "/" ? '' : 'active'} to={item.url}>
                         {item.name}
                       </NavLink>
                     </li>
