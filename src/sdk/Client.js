@@ -8,12 +8,12 @@ class Client {
   spaceURL() {
     return `${this.apiUrl}/content/spaces/${this.spaceUID}`;
   }
-  entriesURL(typeUID) {
-    return `${this.spaceURL()}/types/${typeUID}/entries`;
+  entriesURL(typeUID, query = '') {
+    return `${this.spaceURL()}/types/${typeUID}/entries?${query}`;
   }
 
   getEntries(typeUID, query) {
-    return this.getData(this.entriesURL(typeUID));
+    return this.getData(this.entriesURL(typeUID, query));
   }
 
   async getData(url = "") {

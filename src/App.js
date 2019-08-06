@@ -5,6 +5,7 @@ import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
 import PostShow from "./PostShow";
+import Invite from "./Invite"
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         <Route path="/plans" component={Plans} />
         <Route exact path="/blog" component={Blog} />
+        <Route exact path="/invita" component={Invite} />
         <Route exact path="/blog/:postId" component={PostShow} />
 
         <footer className="footer-base">
