@@ -6,6 +6,7 @@ import Home from "./Home";
 import Blog from "./Blog";
 import PostShow from "./PostShow";
 import Invite from "./Invite"
+import Plans from "./Plans"
 
 class App extends React.Component {
   constructor(props) {
@@ -87,9 +88,9 @@ class App extends React.Component {
         })*/}
         </header>
         <Route exact path="/" component={Home} />
-        <Route path="/plans" component={Plans} />
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/invita" component={Invite} />
+        <Route exact path="/plans" component={Plans} />
         <Route exact path="/blog/:postId" component={PostShow} />
 
         <footer className="footer-base">
@@ -152,12 +153,5 @@ class App extends React.Component {
   }
 }
 
-function Plans() {
-  return (
-    <div>
-      <h2>Plans</h2>
-    </div>
-  );
-}
 
 export default App;
