@@ -99,7 +99,7 @@ class App extends React.Component {
                       <div className="col-md-6 footer-left text-left">
                           <p>Collins Street West 8007, San Fransico, United States.</p>
                           <div className="tag-row">
-                              <span>support@company.com</span>
+                              <span>support@getdynamicpay.com</span>
                               <span>+02 3205550678</span>
                           </div>
                       </div>
@@ -123,7 +123,7 @@ class App extends React.Component {
               </div>
               <div className="row copy-row">
                   <div className="col-md-12 copy-text">
-                      © 2018 Signflow - Multipurpose &amp; Tech Business Template <span>Handmade by <a href="http://schiocco.io/">schiocco.io</a></span>
+                      © 2019 Dynamic Pay
                   </div>
               </div>
           </div>
