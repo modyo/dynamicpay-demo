@@ -1,4 +1,5 @@
 import React from "react";
+import "./Brands.css";
 import img1 from "./img-stock/logos/white/logo_1.png";
 import img2 from "./img-stock/logos/white/logo_2.png";
 import img3 from "./img-stock/logos/white/logo_3.png";
@@ -9,7 +10,7 @@ function Brands() {
   return (
     <div className="section-bg-image bg-top">
       <div className="container content">
-        <div className="logos">
+        <div className="logos py-2 py-lg-5">
           <ul className="slides d-flex">
             <li>
               <a className="img-box" href="/#dummy-link">

@@ -1,0 +1,9 @@
+.slides li {
+    width: 50%;
+}
+
+@media (max-width: 980px) {
+    .slides {
+        flex-wrap: wrap;
+    }
+}

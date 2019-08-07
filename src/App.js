@@ -16,7 +16,7 @@ class App extends React.Component {
 
     this.state = {
       entries: [],
-      isLoading: false
+      activeMenu: false
     };
   }
   componentDidMount() {
@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { entries, isLoading } = this.state;
+    const { entries, activeMenu } = this.state;
     // console.log("entries: ", entries);
     // console.log("isLoading: ", isLoading);
     const menu = entries;
@@ -53,18 +53,28 @@ class App extends React.Component {
       <Router>
         {/* Acá está bien, se parsea lo que venga */}
 
-        <header data-menu-anima="fade-bottom">
+        <header>
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light d-flex">
               <a className="navbar-brand" href="/">
                 <img src={logo} alt="" />
               </a>
+              <button
+                onClick={() => this.setState({activeMenu: true})}
+                className="btn btn-menu d-lg-none">
+                  <i className="mdi mdi-menu mr-0" />
+              </button>
 
-              <div className="ml-auto" id="navbarNav">
+              <div className={`ml-auto ${activeMenu ? 'active' : ''}`} id="navbarNav">
+              <button
+                onClick={() => this.setState({activeMenu: false})}
+                className="btn btn-close-menu d-lg-none">
+                  <i className="mdi mdi-close mr-0" />
+              </button>
                 <ul className="navbar-nav">
                   {menu.map((item, i) => (
                     <li className="nav-item" key={i}>
-                      <NavLink className="nav-link" activeClassName={item.url === "/" ? '' : 'active'} to={item.url}>
+                      <NavLink onClick={() => this.setState({activeMenu: false})} className="nav-link" activeClassName={item.url === "/" ? '' : 'active'} to={item.url}>
                         {item.name}
                       </NavLink>
                     </li>
@@ -100,7 +110,7 @@ class App extends React.Component {
           <div className="content">
             <div className="container">
               <div className="row">
-                <div className="col-md-3 footer-center text-left">
+                <div className="col-md-3 footer-center text-left mb-3 mb-lg-0">
                   <img width="120" src={logo} alt="" />
                 </div>
                 <div className="col-md-6 footer-left text-left">

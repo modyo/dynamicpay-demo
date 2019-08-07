@@ -7,14 +7,14 @@
     padding: 1.5rem;
 }
 
-.logos {
-    padding: 3rem 0;
-}
-
 .bg-banner2 {
     background-size: cover;
 }
 
 .carousel-home .card h5 a {
     color: #375093
+}
+
+.img-box:hover:before {
+    display: none;
 }

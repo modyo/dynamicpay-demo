@@ -24,7 +24,7 @@ const layout = function(props) {
                   </a>
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 mt-4 mt-lg-0">
                 <img src={hero.Cover.url} alt={hero.Cover.title} />
               </div>
             </div>

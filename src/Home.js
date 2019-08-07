@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
 import "./Home.css";
 import Hero from "./Hero";
@@ -57,10 +56,10 @@ class Home extends React.Component {
         <Hero hero={hero} isLoadingHero={isLoadingHero} />
         <div className="section py-5">
           <div className="container">
-            <div className="d-flex carousel-home">
+            <div className="d-lg-flex carousel-home">
               {blocks.map((item, i) =>
                 item.meta.tags[0] === "carousel-home" ? (
-                  <div className="card flex-1 mx-3" key={i}>
+                  <div className="card flex-1 mx-3 mb-3 mb-lg-0" key={i}>
                     <div className="card-header">
                       <img
                         src={item.fields.cover.url}
@@ -68,12 +67,12 @@ class Home extends React.Component {
                       />
                     </div>
                     <h5>
-                      <Link className="nav-link" to={`${item.fields.url}`}>
+                      <a href={item.fields.url} className="nav-link">
                         {item.fields.title}
-                      </Link>
+                      </a>
                     </h5>
                     <div
-                      className="p-3"
+                      className="p-3 d-none d-lg-block"
                       dangerouslySetInnerHTML={{
                         __html: item.fields.description
                       }}
@@ -91,26 +90,26 @@ class Home extends React.Component {
           {blocks.map((item, i) =>
             item.meta.tags[0] === "banner2" ? (
               <div
-                className="container bg-banner2 p-5"
+                className="container bg-banner2 p-3 p-lg-5"
                 style={{ backgroundImage: `url(${item.fields.cover.url}` }}
                 key={i}
               >
                 <div className="row no-gutters">
                   <div className="col-md-8" />
                   <div className="col-md-4">
-                    <div className="bg-white p-5">
+                    <div className="bg-white p-3 p-lg-5">
                       <h2>{item.fields.title}</h2>
                       <p
                         dangerouslySetInnerHTML={{
                           __html: item.fields.description
                         }}
                       />
-                      <Link
+                      <a 
                         className="btn btn-primary mt-4"
-                        to={`${item.fields.url}`}
+                        href={item.fields.url}
                       >
                         {item.fields.title}
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

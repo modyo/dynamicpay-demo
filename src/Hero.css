@@ -6,3 +6,10 @@
     align-items: center;
     background: url(./images/hd-3.jpg)
 }
+
+@media (max-width: 980px) {
+    .hero {
+        height: auto;
+        padding: 2rem 0;
+    }
+}
