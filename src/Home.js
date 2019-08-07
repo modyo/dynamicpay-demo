@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { NavLink } from "react-router-dom";
 import { Client, Conditions } from "./sdk";
 import "./Home.css";
 import Hero from "./Hero";
@@ -67,9 +68,9 @@ class Home extends React.Component {
                       />
                     </div>
                     <h5>
-                      <a href={item.fields.url} className="nav-link">
+                      <NavLink to={item.fields.url} className="nav-link">
                         {item.fields.title}
-                      </a>
+                      </NavLink>
                     </h5>
                     <div
                       className="p-3 d-none d-lg-block"
@@ -104,12 +105,12 @@ class Home extends React.Component {
                           __html: item.fields.description
                         }}
                       />
-                      <a 
+                      <NavLink
                         className="btn btn-primary mt-4"
-                        href={item.fields.url}
+                        to={item.fields.url}
                       >
                         {item.fields.title}
-                      </a>
+                      </NavLink>
                     </div>
                   </div>
                 </div>

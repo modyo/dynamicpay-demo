@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Hero.css";
 import Loading from './Loading'
 
@@ -16,12 +17,12 @@ const layout = function(props) {
                 <div>
                   <h2>{hero.Title}</h2>
                   <div dangerouslySetInnerHTML={{ __html: hero.Description }} />
-                  <a
+                  <NavLink
                     className="btn btn-outline-primary btn-lg mt-5"
-                    href={hero["Url Link"]}
+                    to={hero["Url Link"]}
                   >
                     {hero["Link Title"]}
-                  </a>
+                  </NavLink>
                 </div>
               </div>
               <div className="col-md-6 mt-4 mt-lg-0">
