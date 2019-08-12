@@ -5,10 +5,10 @@ import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
 import PostShow from "./PostShow";
-import Invite from "./Invite";
-import Plans from "./Plans";
-import AboutUs from "./AboutUs";
-import TablaCredit from "./TablaCredit";
+import Invite from "./Invite"
+import Plans from "./Plans"
+import AboutUs from "./AboutUs"
+
 
 class App extends React.Component {
   constructor(props) {
@@ -60,31 +60,21 @@ class App extends React.Component {
                 <img src={logo} alt="" />
               </a>
               <button
-                onClick={() => this.setState({ activeMenu: true })}
-                className="btn btn-menu d-lg-none"
-              >
-                <i className="mdi mdi-menu mr-0" />
+                onClick={() => this.setState({activeMenu: true})}
+                className="btn btn-menu d-lg-none">
+                  <i className="mdi mdi-menu mr-0" />
               </button>
 
-              <div
-                className={`ml-auto ${activeMenu ? "active" : ""}`}
-                id="navbarNav"
-              >
-                <button
-                  onClick={() => this.setState({ activeMenu: false })}
-                  className="btn btn-close-menu d-lg-none"
-                >
+              <div className={`ml-auto ${activeMenu ? 'active' : ''}`} id="navbarNav">
+              <button
+                onClick={() => this.setState({activeMenu: false})}
+                className="btn btn-close-menu d-lg-none">
                   <i className="mdi mdi-close mr-0" />
-                </button>
+              </button>
                 <ul className="navbar-nav">
                   {menu.map((item, i) => (
                     <li className="nav-item" key={i}>
-                      <NavLink
-                        onClick={() => this.setState({ activeMenu: false })}
-                        className="nav-link"
-                        activeClassName={item.url === "/" ? "" : "active"}
-                        to={item.url}
-                      >
+                      <NavLink onClick={() => this.setState({activeMenu: false})} className="nav-link" activeClassName={item.url === "/" ? '' : 'active'} to={item.url}>
                         {item.name}
                       </NavLink>
                     </li>
@@ -115,7 +105,6 @@ class App extends React.Component {
         <Route exact path="/plans" component={Plans} />
         <Route exact path="/nosotros" component={AboutUs} />
         <Route exact path="/blog/:postId" component={PostShow} />
-        <Route exact path="/tabla-credit" component={TablaCredit} />
 
         <footer className="footer-base">
           <div className="content">
@@ -166,7 +155,9 @@ class App extends React.Component {
               </div>
             </div>
             <div className="row copy-row">
-              <div className="col-md-12 copy-text">© 2019 Dynamic Pay</div>
+              <div className="col-md-12 copy-text">
+                  © 2019 Dynamic Pay
+              </div>
             </div>
           </div>
         </footer>
@@ -174,5 +165,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
