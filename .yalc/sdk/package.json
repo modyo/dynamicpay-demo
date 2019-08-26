@@ -1,0 +1,32 @@
+{
+  "name": "sdk",
+  "version": "1.0.0-d86cd698",
+  "description": "Javascript Modyo SDK to consume the API",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modyo/modyo-sdk.git"
+  },
+  "keywords": [
+    "javacript",
+    "modyo",
+    "sdk",
+    "content",
+    "delivery",
+    "headless",
+    "cms"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modyo/modyo-sdk/issues"
+  },
+  "homepage": "https://github.com/modyo/modyo-sdk#readme"
+}

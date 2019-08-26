@@ -1,10 +1,10 @@
 import React from "react";
 import "./Hero.css";
-import Loading from './Loading'
+import Loading from "./Loading";
 
 const layout = function(props) {
   const { hero } = props;
-
+  // console.log("hero: ", hero);
   return (
     <div className="hero">
       <div className="container">

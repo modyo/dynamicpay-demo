@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 8
+      python: 3.7
+  pre_build:
+    commands:
+      - MODYO_SDK_VERSION=$(sh build/github_tag.sh)
+      - echo $MODYO_SDK_VERSION
+  build:
+    commands:
+      - echo Generating the build manifest file
+      - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - echo $MODYO_SDK_VERSION
+      - npm version $MODYO_SDK_VERSION
+      - npm publish

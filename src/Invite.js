@@ -1,24 +1,20 @@
-import React, {Component} from 'react'
-import HeroInvite from './HeroInvite'
-import { Client, Conditions } from "./sdk";
-import Loading from "./Loading"
+import React, { Component } from "react";
+import HeroInvite from "./HeroInvite";
+import getClient from "./modyoClient";
+import Loading from "./Loading";
 
 export default class Invite extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       hero: null
-    }
+    };
   }
 
   componentDidMount() {
-    const client = new Client("https://dynamicbank.modyo.build/api", {
-      spaceUID: "fintech"
-    });
-    client
+    getClient("fintech")
       .getEntries("card", "meta.tag=hero-invite")
-      .then(response => response)
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
@@ -35,9 +31,13 @@ export default class Invite extends Component {
 
   render() {
     return (
-      <div className="invite-layout">  
-          {this.state.hero ? <HeroInvite hero={this.state.hero[0]} /> : <Loading title="Cargando..." />}
+      <div className="invite-layout">
+        {this.state.hero ? (
+          <HeroInvite hero={this.state.hero[0]} />
+        ) : (
+          <Loading title="Cargando..." />
+        )}
       </div>
-    )
+    );
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Client, Conditions } from "./sdk";
-import Loading from "./Loading"
+import getClient from "./modyoClient";
+import Loading from "./Loading";
 
 class Blog extends React.Component {
   constructor(props) {
@@ -14,17 +14,11 @@ class Blog extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoading: true });
-    // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
-    // CORS problems
-    const client = new Client("https://dynamicbank.modyo.build/api", {
-      spaceUID: "personas"
-    });
-    client
+    getClient("personas")
       .getEntries("posts")
-      .then(response => response)
       .then(data => {
         let items = [];
-        console.log("DDD data: ", data);
+        // console.log("BLOG data: ", data);
         for (let index = 0; index < data.entries.length; index++) {
           const itemData = data.entries[index].fields;
           const itemUUID = data.entries[index].meta;
@@ -34,13 +28,10 @@ class Blog extends React.Component {
         const sortedItems = items.sort((a, b) =>
           a.position > b.position ? 1 : b.position > a.position ? -1 : 0
         );
-        console.log("BLOG sortedItems: ", sortedItems);
         this.setState({ blogEntries: sortedItems, isLoading: false });
       });
   }
   render() {
-    // console.log("BLOG this.state.blogEntries: ", this.state.blogEntries);
-    // console.log("BLOG this.props: ", this.props);
     const { blogEntries, isLoading } = this.state;
     return (
       <div className="blog">

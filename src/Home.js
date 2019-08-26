@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Client, Conditions } from "./sdk";
+import getClient from "./modyoClient";
 import "./Home.css";
 import Hero from "./Hero";
 import Brands from "./Brands";
@@ -18,12 +18,8 @@ class Home extends React.Component {
     this.setState({ isLoadingHero: true, isLoading: true });
     // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
     // CORS problems
-    const homeClient = new Client("https://dynamicbank.modyo.build/api", {
-      spaceUID: "fintech"
-    });
-    homeClient
+    getClient("fintech")
       .getEntries("card")
-      .then(response => response)
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
@@ -32,24 +28,15 @@ class Home extends React.Component {
         }
         this.setState({ blocks: items, isLoading: false });
       });
-    const heroClient = new Client("https://dynamicbank.modyo.build/api", {
-      spaceUID: "fintech"
-    });
-    heroClient
+    getClient("fintech")
       .getEntries("hero", "meta.tag=hero-home")
-      .then(response => response)
       .then(data => {
-        // console.log("HERO data: ", data.entries[0].fields);
-        // for (let index = 0; index < data.entries.length; index++) {
-        //   const item = data.entries[index].fields;
-        //   items.push(item);
-        // }
         this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
       });
   }
   render() {
-    const { blocks, hero, isLoadingHero, isLoading } = this.state;
-    // console.log("blocks: ", blocks);
+    const { blocks, hero, isLoadingHero } = this.state;
+    // console.log("hero: ", hero);
     // console.log("isLoading: ", isLoading);
     return (
       <Fragment>
@@ -104,7 +91,7 @@ class Home extends React.Component {
                           __html: item.fields.description
                         }}
                       />
-                      <a 
+                      <a
                         className="btn btn-primary mt-4"
                         href={item.fields.url}
                       >
