@@ -48,12 +48,12 @@ export default class AboutUs extends Component {
           </div>
         </div>
         <div
-          class="section-bg-image"
+          className="section-bg-image"
           style={{ backgroundImage: `url(${img1})` }}
         >
-          <div class="container content">
-            <div class="row">
-              <div class="col-md-6 col-center text-center boxed-inverse shadow-1">
+          <div className="container content">
+            <div className="row">
+              <div className="col-md-6 col-center text-center boxed-inverse shadow-1">
                 <h4>Revisa nuestros servicios</h4>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adip ullamco laboris

@@ -2,7 +2,11 @@
   "version": "v1",
   "packages": {
     "sdk": {
-      "signature": "d86cd698830a7aeb7192a968f8bee605",
+      "signature": "e8de0a550aad2701da0ccccafd188e44",
+      "file": true
+    },
+    "@modyo/sdk": {
+      "signature": "532f850fd6908b0f67d21b4e2ef707a8",
       "file": true
     }
   }

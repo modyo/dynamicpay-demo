@@ -1,3 +1,5 @@
+import axios from "axios";
+
 class Client {
   constructor(apiUrl, options = {}) {
     this.apiUrl = apiUrl;
@@ -33,23 +35,11 @@ class Client {
   }
 
   getData(url = "") {
-    return fetch(url, {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      // mode: 'no-cors', // no-cors, cors, *same-origin
-      // cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-      // credentials: 'include',
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then(res => res, this._errorHandler); // parses JSON response into native JavaScript objects
-  }
-}
-
-class Conditions {
-  static equals(field, value) {
-    return `${field}=${value}`;
+    return axios({
+      method: "get",
+      url,
+      headers: { "Content-Type": "application/json" }
+    }).then(res => res.data, this._errorHandler);
   }
 }
 

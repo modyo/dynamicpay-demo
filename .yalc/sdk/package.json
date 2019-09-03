@@ -1,6 +1,6 @@
 {
   "name": "sdk",
-  "version": "1.0.0-d86cd698",
+  "version": "1.0.0-e8de0a55",
   "description": "Javascript Modyo SDK to consume the API",
   "main": "src/index.js",
   "scripts": {
@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/modyo/modyo-sdk/issues"
   },
-  "homepage": "https://github.com/modyo/modyo-sdk#readme"
+  "homepage": "https://github.com/modyo/modyo-sdk#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
 }

@@ -16,11 +16,10 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
-    // CORS problems
     getClient("fintech")
       .getEntries("card")
       .then(data => {
+        // console.log("data: ", data);
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
           const item = data.entries[index];
