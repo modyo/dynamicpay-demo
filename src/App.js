@@ -105,9 +105,9 @@ class App extends React.Component {
         </header>
         <Route exact path="/" component={Home} />
         <Route exact path="/blog" component={Blog} />
-        <Route exact path="/invita" component={Invite} />
+        <Route exact path="/invite" component={Invite} />
         <Route exact path="/plans" component={Plans} />
-        <Route exact path="/nosotros" component={AboutUs} />
+        <Route exact path="/about-us" component={AboutUs} />
         <Route exact path="/blog/:postId" component={PostShow} />
 
         <footer className="footer-base">
