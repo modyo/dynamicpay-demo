@@ -1,6 +1,6 @@
 import { Client, Conditions } from "../src";
 
-const client = new Client("https://un.modyo.build/api", {
+const client = new Client("https://un.modyo.cloud/api", {
   spaceUID: "testing"
 });
 console.log(client.spaceURL());

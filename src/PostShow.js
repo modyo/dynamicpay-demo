@@ -13,7 +13,7 @@ class PostShow extends React.Component {
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
     // console.log("componentDidMount isLoading", this.state.isLoading);
-    // https://dynamicbank.modyo.build/api/content/spaces/static-data/types/menu-item/entries
+    // https://dynamicbank.modyo.cloud/api/content/spaces/static-data/types/menu-item/entries
     // CORS problems
     const id = this.props.match.params.postId;
     getClient("personas")
