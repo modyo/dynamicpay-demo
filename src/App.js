@@ -159,7 +159,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="row copy-row">
-              <div className="col-md-12 copy-text">© 2019 Dynamic Pay</div>
+              <div className="col-md-12 copy-text">© 2020 Dynamic Pay</div>
             </div>
           </div>
         </footer>
