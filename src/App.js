@@ -8,46 +8,62 @@ import PostShow from "./PostShow";
 import Invite from "./Invite";
 import Plans from "./Plans";
 import AboutUs from "./AboutUs";
+import { withNamespaces } from 'react-i18next';
+import i18n from './i18n';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       entries: [],
       activeMenu: false
     };
   }
-  componentDidMount() {
+
+
+  getComponentData() {
+    console.log('* getComponentData *');
+    console.log('*** i18n: ', i18n.language);
+    // TODO: Crear un if del lenguaje => i18n.language
     this.setState({ isLoading: true });
     getClient("static-data")
-      .getEntries("menu-item")
-      .then(response => {
-        // console.log("response: ", response);
-        let items = [];
-        for (let index = 0; index < response.entries.length; index++) {
-          const item = response.entries[index].fields;
-          items.push(item);
-        }
-        const sortedItems = items.sort((a, b) =>
-          a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-        );
-        // console.log("sortedItems: ", sortedItems);
-        this.setState({ entries: sortedItems, isLoading: false });
-      });
+        .getEntries("menu-item")
+        .then(response => {
+          // console.log("# response: ", response);
+          let items = [];
+          for (let index = 0; index < response.entries.length; index++) {
+            const item = response.entries[index].fields;
+            items.push(item);
+          }
+          const sortedItems = items.sort((a, b) =>
+              a.position > b.position ? 1 : b.position > a.position ? -1 : 0
+          );
+          // console.log("sortedItems: ", sortedItems);
+          this.setState({ entries: sortedItems, isLoading: false });
+        });
+  }
+
+  componentDidMount() {
+    this.getComponentData();
   }
 
   render() {
     const { entries, activeMenu } = this.state;
+    const { t } = this.props;
     // console.log("entries: ", entries);
     // console.log("isLoading: ", isLoading);
     const menu = entries;
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+      this.getComponentData();
+    };
     return (
       // dynamic component
       <Router>
         {/* Acá está bien, se parsea lo que venga */}
 
         <header>
+          <h1>holo: {t('home-title')}</h1>
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light d-flex">
               <a className="navbar-brand" href="/">
@@ -83,6 +99,16 @@ class App extends React.Component {
                       </NavLink>
                     </li>
                   ))}
+                  <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Idioma
+                    </a>
+                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <button className="dropdown-item" onClick={() => changeLanguage('en')}>Inglés</button>
+                      <button className="dropdown-item" onClick={() => changeLanguage('es')}>Español</button>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -168,4 +194,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withNamespaces()(App);
+
