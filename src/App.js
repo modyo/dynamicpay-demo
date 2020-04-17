@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import getClient from "./modyoClient";
+import getClient from "./modyoBankyoClient";
 import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
@@ -26,7 +26,10 @@ class App extends React.Component {
     console.log('*** i18n: ', i18n.language);
     // TODO: Crear un if del lenguaje => i18n.language
     this.setState({ isLoading: true });
-    getClient("static-data")
+    // https://bankyo.modyo.cloud/api/content/spaces/getdynamicpay-static-data/types/menu-item/entries?locale=en
+    // https://bankyo.modyo.cloud/api/content/spaces/getdynamicpay-static-data/types/menu-item/entries?locale=es
+    // TODO: falta pasar el parámetro en la url
+    getClient("getdynamicpay-static-data")
         .getEntries("menu-item")
         .then(response => {
           console.log("# response: ", response);
