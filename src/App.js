@@ -29,7 +29,7 @@ class App extends React.Component {
     getClient("static-data")
         .getEntries("menu-item")
         .then(response => {
-          // console.log("# response: ", response);
+          console.log("# response: ", response);
           let items = [];
           for (let index = 0; index < response.entries.length; index++) {
             const item = response.entries[index].fields;
@@ -38,7 +38,7 @@ class App extends React.Component {
           const sortedItems = items.sort((a, b) =>
               a.position > b.position ? 1 : b.position > a.position ? -1 : 0
           );
-          // console.log("sortedItems: ", sortedItems);
+          console.log("sortedItems: ", sortedItems);
           this.setState({ entries: sortedItems, isLoading: false });
         });
   }
@@ -63,7 +63,6 @@ class App extends React.Component {
         {/* Acá está bien, se parsea lo que venga */}
 
         <header>
-          <h1>holo: {t('home-title')}</h1>
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light d-flex">
               <a className="navbar-brand" href="/">
@@ -144,10 +143,10 @@ class App extends React.Component {
                   <img width="120" src={logo} alt="" />
                 </div>
                 <div className="col-md-6 footer-left text-left">
-                  <p>Collins Street West 8007, San Fransico, United States.</p>
+                  <p>{t('home-footer-address')}</p>
                   <div className="tag-row">
-                    <span>support@getdynamicpay.com</span>
-                    <span>+02 3205550678</span>
+                    <span>{t('home-footer-email')}</span>
+                    <span>{t('home-footer-phone')}</span>
                   </div>
                 </div>
                 <div className="col-md-3 footer-left text-right text-left-sm">
@@ -185,7 +184,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="row copy-row">
-              <div className="col-md-12 copy-text">© 2020 Dynamic Pay</div>
+              <div className="col-md-12 copy-text">{t('home-footer-copyright')}</div>
             </div>
           </div>
         </footer>
