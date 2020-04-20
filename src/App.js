@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import getClient from "./modyoBankyoClient";
+import getEntries from "./modyoBankyoEntries";
 import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
@@ -23,22 +23,20 @@ class App extends React.Component {
 
   getComponentData() {
     this.setState({ entries: [], isLoading: true });
-    const client = getClient(i18n.language);
-    const clientType = client.getContentType("getdynamicpay-static-data", "menu-item");
-    clientType.getEntries()
-        .then(response => {
-          // console.log("# response: ", response);
-          let items = [];
-          for (let index = 0; index < response.entries.length; index++) {
-            const item = response.entries[index].fields;
-            items.push(item);
-          }
-          const sortedItems = items.sort((a, b) =>
-              a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-          );
-          // console.log("sortedItems: ", sortedItems);
-          this.setState({ entries: sortedItems, isLoading: false });
-        });
+    getEntries("getdynamicpay-static-data", "menu-item", i18n.language)
+      .then(response => {
+        // console.log("response: ", response);
+        let items = [];
+        for (let index = 0; index < response.entries.length; index++) {
+          const item = response.entries[index].fields;
+          items.push(item);
+        }
+        const sortedItems = items.sort((a, b) =>
+          a.position > b.position ? 1 : b.position > a.position ? -1 : 0
+        );
+        // console.log("sortedItems: ", sortedItems);
+        this.setState({ entries: sortedItems, isLoading: false });
+      });
   }
 
   componentDidMount() {

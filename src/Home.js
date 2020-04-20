@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
-import getClient from "./modyoClient";
 import "./Home.css";
 import Hero from "./Hero";
 import Brands from "./Brands";
+import getEntries from "./modyoBankyoEntries";
+import i18n from "./i18n";
 
 class Home extends React.Component {
   constructor(props) {
@@ -16,23 +17,20 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    const client = getClient();
-    const clientTypeCard = client.getContentType("fintech", "card");
-    clientTypeCard.getEntries()
+    // TODO: continuar con cuando el idioma cambia
+    getEntries("getdynamicpay-content", "card", i18n.language)
       .then(data => {
-          // console.log("data: ", data);
-          let items = [];
-          for (let index = 0; index < data.entries.length; index++) {
-              const item = data.entries[index];
-              items.push(item);
-          }
-          this.setState({ blocks: items, isLoading: false });
+        let items = [];
+        for (let index = 0; index < data.entries.length; index++) {
+          const item = data.entries[index];
+          items.push(item);
+        }
+        this.setState({ blocks: items, isLoading: false });
       });
 
-    const clientTypeHero = client.getContentType("fintech", "hero");
-    clientTypeHero.getEntries("meta.tag=hero-home")
+    getEntries("getdynamicpay-content", "hero", i18n.language)
       .then(data => {
-          this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
+        this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
       });
   }
   render() {
