@@ -22,17 +22,12 @@ class App extends React.Component {
 
 
   getComponentData() {
-    console.log('* getComponentData *');
-    console.log('*** i18n: ', i18n.language);
-    // TODO: Crear un if del lenguaje => i18n.language
     this.setState({ isLoading: true });
-    // https://bankyo.modyo.cloud/api/content/spaces/getdynamicpay-static-data/types/menu-item/entries?locale=en
-    // https://bankyo.modyo.cloud/api/content/spaces/getdynamicpay-static-data/types/menu-item/entries?locale=es
-    // TODO: falta pasar el parámetro en la url
-    getClient("getdynamicpay-static-data")
-        .getEntries("menu-item")
+    const client = getClient(i18n.language);
+    const clientType = client.getContentType("getdynamicpay-static-data", "menu-item");
+    clientType.getEntries()
         .then(response => {
-          console.log("# response: ", response);
+          // console.log("# response: ", response);
           let items = [];
           for (let index = 0; index < response.entries.length; index++) {
             const item = response.entries[index].fields;
@@ -41,7 +36,7 @@ class App extends React.Component {
           const sortedItems = items.sort((a, b) =>
               a.position > b.position ? 1 : b.position > a.position ? -1 : 0
           );
-          console.log("sortedItems: ", sortedItems);
+          // console.log("sortedItems: ", sortedItems);
           this.setState({ entries: sortedItems, isLoading: false });
         });
   }

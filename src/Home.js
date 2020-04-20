@@ -16,21 +16,29 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    getClient("fintech")
-      .getEntries("card")
+    // getClient("fintech")
+    //   .getEntries("hero", "meta.tag=hero-home")
+    //   .then(data => {
+    //     this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
+    //   });
+
+    const client = getClient();
+    const clientTypeCard = client.getContentType("fintech", "card");
+    clientTypeCard.getEntries()
       .then(data => {
-        // console.log("data: ", data);
-        let items = [];
-        for (let index = 0; index < data.entries.length; index++) {
-          const item = data.entries[index];
-          items.push(item);
-        }
-        this.setState({ blocks: items, isLoading: false });
+          // console.log("data: ", data);
+          let items = [];
+          for (let index = 0; index < data.entries.length; index++) {
+              const item = data.entries[index];
+              items.push(item);
+          }
+          this.setState({ blocks: items, isLoading: false });
       });
-    getClient("fintech")
-      .getEntries("hero", "meta.tag=hero-home")
+
+    const clientTypeHero = client.getContentType("fintech", "hero");
+    clientTypeHero.getEntries("meta.tag=hero-home")
       .then(data => {
-        this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
+          this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
       });
   }
   render() {
