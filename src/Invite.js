@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HeroInvite from "./HeroInvite";
 import getClient from "./modyoClient";
 import Loading from "./Loading";
+import i18n from "./i18n";
 
 export default class Invite extends Component {
   constructor(props) {
@@ -13,8 +14,9 @@ export default class Invite extends Component {
   }
 
   componentDidMount() {
-    getClient("fintech")
-      .getEntries("card", "meta.tag=hero-invite")
+    const client = getClient();
+    const clientType = client.getContentType("fintech", "card");
+    clientType.getEntries("meta.tag=hero-invite")
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {

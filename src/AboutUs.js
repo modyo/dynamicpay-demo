@@ -3,6 +3,7 @@ import getClient from "./modyoClient";
 import Loading from "./Loading";
 import "./Plans.css";
 import img1 from "./img-stock/bg-23.jpg";
+import i18n from "./i18n";
 
 export default class AboutUs extends Component {
   constructor(props) {
@@ -14,8 +15,9 @@ export default class AboutUs extends Component {
   }
 
   componentDidMount() {
-    getClient("fintech")
-      .getEntries("card", "meta.tag=hero-about")
+    const client = getClient();
+    const clientCard = client.getContentType("fintech", "card");
+    clientCard.getEntries("meta.tag=hero-about")
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {

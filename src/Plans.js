@@ -3,6 +3,7 @@ import HeroPlans from "./HeroPlans";
 import getClient from "./modyoClient";
 import Loading from "./Loading";
 import "./Plans.css";
+import i18n from "./i18n";
 
 export default class Plans extends Component {
   constructor(props) {
@@ -15,36 +16,38 @@ export default class Plans extends Component {
   }
 
   componentDidMount() {
-    getClient("fintech")
-      .getEntries("hero", "meta.tag=hero-plans")
-      .then(data => {
-        let items = [];
-        for (let index = 0; index < data.entries.length; index++) {
-          const item = data.entries[index].fields;
-          items.push(item);
-        }
-        this.setState({ hero: items, isLoading: false });
-      });
+      const client = getClient();
+      const clientHero = client.getContentType("fintech", "hero");
+      const clientPlans = client.getContentType("fintech", "plans");
 
-    getClient("fintech")
-      .getEntries("plans")
-      .then(data => {
-        let items = [];
-        for (let index = 0; index < data.entries.length; index++) {
-          const item = data.entries[index].fields;
-          items.push(item);
-        }
-        const sortedItems = items.sort((a, b) =>
-          a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-        );
-        this.setState({ plans: sortedItems, isLoading: false });
-      });
+      clientHero.getEntries("meta.tag=hero-plans")
+          .then(data => {
+              let items = [];
+              for (let index = 0; index < data.entries.length; index++) {
+                  const item = data.entries[index].fields;
+                  items.push(item);
+              }
+              this.setState({ hero: items, isLoading: false });
+          });
+
+      clientPlans.getEntries()
+          .then(data => {
+              let items = [];
+              for (let index = 0; index < data.entries.length; index++) {
+                  const item = data.entries[index].fields;
+                  items.push(item);
+              }
+              const sortedItems = items.sort((a, b) =>
+                  a.position > b.position ? 1 : b.position > a.position ? -1 : 0
+              );
+              this.setState({ plans: sortedItems, isLoading: false });
+          });
   }
 
   planItem() {
-    return this.state.plans.map(e => {
+    return this.state.plans.map((e, i) => {
       return (
-        <div className="plan-item bg-white flex-1 mx-lg-4 mb-4 mb-lg-0">
+        <div className="plan-item bg-white flex-1 mx-lg-4 mb-4 mb-lg-0" key={i}>
           <div className="pricing-name">
             <h4 className="text-normal mb-0">{e.Title}</h4>
           </div>

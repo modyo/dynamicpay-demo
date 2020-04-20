@@ -99,11 +99,11 @@ class App extends React.Component {
                   <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Idioma
+                      {t('home-header-language')}
                     </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <button className="dropdown-item" onClick={() => changeLanguage('en')}>Inglés</button>
-                      <button className="dropdown-item" onClick={() => changeLanguage('es')}>Español</button>
+                      <button className="dropdown-item" onClick={() => changeLanguage('en')}>{t('home-header-english')}</button>
+                      <button className="dropdown-item" onClick={() => changeLanguage('es')}>{t('home-header-spanish')}</button>
                     </div>
                   </li>
                 </ul>

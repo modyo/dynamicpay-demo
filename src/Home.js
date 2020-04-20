@@ -16,12 +16,6 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    // getClient("fintech")
-    //   .getEntries("hero", "meta.tag=hero-home")
-    //   .then(data => {
-    //     this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
-    //   });
-
     const client = getClient();
     const clientTypeCard = client.getContentType("fintech", "card");
     clientTypeCard.getEntries()

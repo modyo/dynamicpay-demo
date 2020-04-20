@@ -1,5 +1,6 @@
 import React from "react";
 import getClient from "./modyoClient";
+import i18n from "./i18n";
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -16,8 +17,9 @@ class PostShow extends React.Component {
     // https://dynamicbank.modyo.cloud/api/content/spaces/static-data/types/menu-item/entries
     // CORS problems
     const id = this.props.match.params.postId;
-    getClient("personas")
-      .getEntry("posts", id)
+    const client = getClient();
+    const clientType = client.getContentType("personas", "posts");
+    clientType.getEntry(id)
       .then(data => {
         // console.log("data: ", data);
         const itemData = data.fields;
