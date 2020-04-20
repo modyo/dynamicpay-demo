@@ -6,8 +6,8 @@
       <change beforePath="$PROJECT_DIR$/src/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AboutUs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Invite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Invite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loading.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Plans.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Plans.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PostShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostShow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en.json" afterDir="false" />
@@ -81,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587139534866</updated>
-      <workItem from="1587139536433" duration="11545000" />
+      <workItem from="1587139536433" duration="14054000" />
     </task>
     <task id="LOCAL-00004" summary="last modyo sdk">
       <created>1587154447129</created>
@@ -97,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587396324376</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor sdk">
+      <created>1587402911316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587402911316</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,17 +116,18 @@
     <MESSAGE value="home static text" />
     <MESSAGE value="last modyo sdk" />
     <MESSAGE value="start refactor modyo SDK" />
-    <option name="LAST_COMMIT_MESSAGE" value="start refactor modyo SDK" />
+    <MESSAGE value="refactor sdk" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor sdk" />
   </component>
   <component name="WindowStateProjectService">
     <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587157533074">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
     <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser/35.23.1645.1027@35.23.1645.1027" timestamp="1587157533074" />
-    <state x="328" y="51" key="CommitChangelistDialog2" timestamp="1587396324192">
+    <state x="328" y="51" key="CommitChangelistDialog2" timestamp="1587402911037">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
-    <state x="328" y="51" key="CommitChangelistDialog2/35.23.1645.1027@35.23.1645.1027" timestamp="1587396324192" />
+    <state x="328" y="51" key="CommitChangelistDialog2/35.23.1645.1027@35.23.1645.1027" timestamp="1587402911037" />
     <state x="498" y="169" key="RollbackChangesDialog" timestamp="1587138648547">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
@@ -128,13 +136,13 @@
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
     <state x="359" y="175" key="SettingsEditor/35.23.1645.1027@35.23.1645.1027" timestamp="1587398894728" />
-    <state x="457" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587396325633">
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587402912286">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
-    <state x="457" y="258" key="Vcs.Push.Dialog.v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587396325633" />
-    <state x="506" y="277" width="703" height="518" key="find.popup" timestamp="1587402893950">
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587402912286" />
+    <state x="506" y="277" width="703" height="518" key="find.popup" timestamp="1587407481043">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
-    <state x="506" y="277" width="703" height="518" key="find.popup/35.23.1645.1027@35.23.1645.1027" timestamp="1587402893950" />
+    <state x="506" y="277" width="703" height="518" key="find.popup/35.23.1645.1027@35.23.1645.1027" timestamp="1587407481043" />
   </component>
 </project>

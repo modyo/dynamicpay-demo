@@ -22,7 +22,7 @@ class App extends React.Component {
 
 
   getComponentData() {
-    this.setState({ isLoading: true });
+    this.setState({ entries: [], isLoading: true });
     const client = getClient(i18n.language);
     const clientType = client.getContentType("getdynamicpay-static-data", "menu-item");
     clientType.getEntries()

@@ -1,4 +1,6 @@
 {
+  "global-loading": "Cargando...",
+
   "home-header-language": "Idioma",
   "home-header-english": "Inglés",
   "home-header-spanish": "Español",
@@ -8,5 +10,9 @@
   "home-footer-copyright": "© 2020 Dynamic Pay",
 
   "blog-title": "Blog",
-  "blog-read-more": "+ Leer más"
+  "blog-read-more": "+ Leer más",
+
+  "about-us-our-services": "Revisa nuestros servicios",
+  "about-us-description": "Lorem ipsum dolor sit amet consectetur adip ullamco laboris nisi utla pariature tempore marto",
+  "about-us-services": "Servicios"
 }

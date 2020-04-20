@@ -3,9 +3,9 @@ import HeroPlans from "./HeroPlans";
 import getClient from "./modyoClient";
 import Loading from "./Loading";
 import "./Plans.css";
-import i18n from "./i18n";
+import { withNamespaces } from 'react-i18next';
 
-export default class Plans extends Component {
+class Plans extends Component {
   constructor(props) {
     super(props);
 
@@ -70,13 +70,15 @@ export default class Plans extends Component {
   }
 
   render() {
+    const { t } = this.props;
+    const loading = t('global-loading');
     return (
       <Fragment>
         <div className="plans-layout">
           {this.state.hero ? (
             <HeroPlans hero={this.state.hero[0]} />
           ) : (
-            <Loading title="Cargando..." />
+            <Loading title={loading} />
           )}
         </div>
         <div className="plans-list">
@@ -87,10 +89,12 @@ export default class Plans extends Component {
               </div>
             </div>
           ) : (
-            <Loading title="Cargando..." />
+            <Loading title={loading} />
           )}
         </div>
       </Fragment>
     );
   }
 }
+
+export default withNamespaces()(Plans);

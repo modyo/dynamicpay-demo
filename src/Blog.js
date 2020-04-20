@@ -36,12 +36,13 @@ class Blog extends React.Component {
   render() {
     const { blogEntries, isLoading } = this.state;
     const { t } = this.props;
+    const loading = t('global-loading');
     return (
       <div className="blog">
         <div className="container">
           <h2 className="mb-5">{t('blog-title')}</h2>
           {isLoading ? (
-            <Loading title="Cargando..." />
+            <Loading title={loading} />
           ) : (
             <div className="posts row">
               {blogEntries.map((item, i) => (

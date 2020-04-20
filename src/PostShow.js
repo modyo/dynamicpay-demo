@@ -1,6 +1,6 @@
 import React from "react";
 import getClient from "./modyoClient";
-import i18n from "./i18n";
+import { withNamespaces } from 'react-i18next';
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class PostShow extends React.Component {
     // console.log("AAA Post: ", this.props);
     // console.log("render isLoading", this.state.isLoading);
     const { entry } = this.state;
+    const { t } = this.props;
     // console.log("entry: ", entry.covers ? entry.covers[0].url : null);
     return (
       <div className="post-show mt-5">
@@ -42,9 +43,9 @@ class PostShow extends React.Component {
               {this.state.loading === true ? (
                 <div className="loading">
                   <div class="spinner-border text-secondary" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">{t('global-loading')}</span>
                   </div>{" "}
-                  <span className="ml-4">Cargando...</span>
+                  <span className="ml-4">{t('global-loading')}</span>
                 </div>
               ) : (
                 <div>
@@ -68,4 +69,4 @@ class PostShow extends React.Component {
   }
 }
 
-export default PostShow;
+export default withNamespaces()(PostShow);

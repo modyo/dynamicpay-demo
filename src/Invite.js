@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import HeroInvite from "./HeroInvite";
 import getClient from "./modyoClient";
 import Loading from "./Loading";
-import i18n from "./i18n";
+import { withNamespaces } from 'react-i18next';
 
-export default class Invite extends Component {
+class Invite extends Component {
   constructor(props) {
     super(props);
 
@@ -32,14 +32,18 @@ export default class Invite extends Component {
   }
 
   render() {
+    const { t } = this.props;
+    const loading = t('global-loading');
     return (
       <div className="invite-layout">
         {this.state.hero ? (
           <HeroInvite hero={this.state.hero[0]} />
         ) : (
-          <Loading title="Cargando..." />
+          <Loading title={loading} />
         )}
       </div>
     );
   }
 }
+
+export default withNamespaces()(Invite);
