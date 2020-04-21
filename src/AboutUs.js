@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import getClient from "./modyoClient";
 import getEntries from "./modyoBankyoEntries";
 import Loading from "./Loading";
 import "./Plans.css";

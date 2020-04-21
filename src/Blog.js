@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import getClient from "./modyoClient";
 import Loading from "./Loading";
 import { withNamespaces } from 'react-i18next';
+import i18n from "./i18n";
+import getEntries from "./modyoBankyoEntries";
 
 class Blog extends React.Component {
   constructor(props) {
@@ -15,14 +16,12 @@ class Blog extends React.Component {
   }
   componentDidMount() {
     this.getPosts();
+    this.checkLanguageChanged();
   }
 
   getPosts() {
     this.setState({ isLoading: true });
-
-    const client = getClient();
-    const clientPosts = client.getContentType("personas", "posts");
-    clientPosts.getEntries()
+    getEntries("getdynamicpay-content", "blog", i18n.language)
       .then(data => {
         let items = [];
         // console.log("BLOG data: ", data);
@@ -37,6 +36,13 @@ class Blog extends React.Component {
         );
         this.setState({ blogEntries: sortedItems, isLoading: false });
       });
+  }
+
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ isLoading: true, blogEntries: [] });
+      this.getPosts();
+    });
   }
 
   render() {
@@ -55,7 +61,7 @@ class Blog extends React.Component {
                 <div className="col-md-4 mb-4" key={item.uuid}>
                   <div className="card">
                     <div className="card-header">
-                      <img src={item.covers[0].url} alt="" />
+                      <img src={item.cover.url} alt="" />
                     </div>
                     <div className="card-body">
                       <h3 className="h5">

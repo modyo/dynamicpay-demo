@@ -1,6 +1,8 @@
 import React from "react";
-import getClient from "./modyoClient";
+import getEntry from "./modyoBankyoEntry";
 import { withNamespaces } from 'react-i18next';
+import i18n from "./i18n";
+import getEntries from "./modyoBankyoEntries";
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -12,14 +14,14 @@ class PostShow extends React.Component {
     };
   }
   componentDidMount() {
+    this.getPost();
+    this.checkLanguageChanged();
+  }
+
+  getPost() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    // console.log("componentDidMount isLoading", this.state.isLoading);
-    // https://dynamicbank.modyo.cloud/api/content/spaces/static-data/types/menu-item/entries
-    // CORS problems
     const id = this.props.match.params.postId;
-    const client = getClient();
-    const clientType = client.getContentType("personas", "posts");
-    clientType.getEntry(id)
+    getEntry("getdynamicpay-content", "blog", i18n.language, id)
       .then(data => {
         // console.log("data: ", data);
         const itemData = data.fields;
@@ -28,6 +30,14 @@ class PostShow extends React.Component {
         this.setState({ entry: item, isLoading: false });
       });
   }
+
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ isLoading: true });
+      this.getPost();
+    });
+  }
+
   render() {
     // console.log("AAA Post: ", this.props);
     // console.log("render isLoading", this.state.isLoading);
@@ -49,9 +59,9 @@ class PostShow extends React.Component {
                 </div>
               ) : (
                 <div>
-                  {entry.covers ? (
+                  {entry.cover ? (
                     <div className="main-cover">
-                      <img src={entry.covers[0].url} alt="Cover" />
+                      <img src={entry.cover.url} alt="Cover" />
                       <h1>{entry.title}</h1>
                     </div>
                   ) : null}
