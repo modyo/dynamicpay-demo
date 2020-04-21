@@ -36,6 +36,9 @@ class App extends React.Component {
         );
         // console.log("sortedItems: ", sortedItems);
         this.setState({ entries: sortedItems, isLoading: false });
+      })
+      .catch(err => {
+        console.log('* App - getComponentData - ERROR: ', err)
       });
   }
 
@@ -50,8 +53,9 @@ class App extends React.Component {
     // console.log("isLoading: ", isLoading);
     const menu = entries;
     const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
-      this.getComponentData();
+      i18n.changeLanguage(lng).then(() => {
+        this.getComponentData();
+      });
     };
     return (
       // dynamic component

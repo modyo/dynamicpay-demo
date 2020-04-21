@@ -12,12 +12,17 @@ class Home extends React.Component {
       blocks: [],
       hero: null,
       isLoadingHero: false,
-      isLoading: false
+      isLoading: false,
     };
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    // TODO: continuar con cuando el idioma cambia
+    this.getCard();
+    this.getHero();
+    this.checkLanguageChanged();
+  }
+
+  getCard() {
     getEntries("getdynamicpay-content", "card", i18n.language)
       .then(data => {
         let items = [];
@@ -27,16 +32,26 @@ class Home extends React.Component {
         }
         this.setState({ blocks: items, isLoading: false });
       });
+  }
 
+  getHero() {
     getEntries("getdynamicpay-content", "hero", i18n.language)
       .then(data => {
         this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
       });
   }
+
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ isLoadingHero: true, isLoading: true, blocks: [], hero: null });
+      this.getCard();
+      this.getHero();
+    });
+  }
+
   render() {
     const { blocks, hero, isLoadingHero } = this.state;
-    // console.log("hero: ", hero);
-    // console.log("isLoading: ", isLoading);
+
     return (
       <Fragment>
         <Hero hero={hero} isLoadingHero={isLoadingHero} />
