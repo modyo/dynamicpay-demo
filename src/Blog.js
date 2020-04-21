@@ -14,25 +14,31 @@ class Blog extends React.Component {
     };
   }
   componentDidMount() {
+    this.getPosts();
+  }
+
+  getPosts() {
     this.setState({ isLoading: true });
+
     const client = getClient();
     const clientPosts = client.getContentType("personas", "posts");
     clientPosts.getEntries()
       .then(data => {
-          let items = [];
-          // console.log("BLOG data: ", data);
-          for (let index = 0; index < data.entries.length; index++) {
-              const itemData = data.entries[index].fields;
-              const itemUUID = data.entries[index].meta;
-              const item = { ...itemData, ...itemUUID };
-              items.push(item);
-          }
-          const sortedItems = items.sort((a, b) =>
-              a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-          );
-          this.setState({ blogEntries: sortedItems, isLoading: false });
+        let items = [];
+        // console.log("BLOG data: ", data);
+        for (let index = 0; index < data.entries.length; index++) {
+          const itemData = data.entries[index].fields;
+          const itemUUID = data.entries[index].meta;
+          const item = { ...itemData, ...itemUUID };
+          items.push(item);
+        }
+        const sortedItems = items.sort((a, b) =>
+          a.position > b.position ? 1 : b.position > a.position ? -1 : 0
+        );
+        this.setState({ blogEntries: sortedItems, isLoading: false });
       });
   }
+
   render() {
     const { blogEntries, isLoading } = this.state;
     const { t } = this.props;

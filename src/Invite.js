@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import HeroInvite from "./HeroInvite";
-import getClient from "./modyoClient";
+import getEntries from "./modyoBankyoEntries";
 import Loading from "./Loading";
 import { withNamespaces } from 'react-i18next';
+import i18n from "./i18n";
 
 class Invite extends Component {
   constructor(props) {
@@ -14,9 +15,12 @@ class Invite extends Component {
   }
 
   componentDidMount() {
-    const client = getClient();
-    const clientType = client.getContentType("fintech", "card");
-    clientType.getEntries("meta.tag=hero-invite")
+    this.getCard();
+    this.checkLanguageChanged();
+  }
+
+  getCard() {
+    getEntries("getdynamicpay-content", "card", i18n.language, "meta.tag=hero-invite")
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
@@ -29,6 +33,13 @@ class Invite extends Component {
         // console.log("sortedItems: ", sortedItems);
         this.setState({ hero: sortedItems, isLoading: false });
       });
+  }
+
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ hero: null, isLoading: true });
+      this.getCard();
+    });
   }
 
   render() {
