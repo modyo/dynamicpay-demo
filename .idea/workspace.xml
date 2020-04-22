@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41a2de24-1454-4f15-9430-39fec1452e1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modyoBankyoEntry.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AboutUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PostShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PostShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587139534866</updated>
       <workItem from="1587139536433" duration="19745000" />
-      <workItem from="1587477096044" duration="9373000" />
+      <workItem from="1587477096044" duration="10747000" />
     </task>
     <task id="LOCAL-00004" summary="last modyo sdk">
       <created>1587154447129</created>
@@ -144,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587488276363</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="posts translate">
+      <created>1587506058634</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587506058634</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,17 +164,18 @@
     <MESSAGE value="home" />
     <MESSAGE value="about us" />
     <MESSAGE value="blog, plans, invite, hero plans" />
-    <option name="LAST_COMMIT_MESSAGE" value="blog, plans, invite, hero plans" />
+    <MESSAGE value="posts translate" />
+    <option name="LAST_COMMIT_MESSAGE" value="posts translate" />
   </component>
   <component name="WindowStateProjectService">
     <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587157533074">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
     <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser/35.23.1645.1027@35.23.1645.1027" timestamp="1587157533074" />
-    <state x="328" y="51" key="CommitChangelistDialog2" timestamp="1587488275994">
+    <state x="328" y="51" key="CommitChangelistDialog2" timestamp="1587506058440">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
-    <state x="328" y="51" key="CommitChangelistDialog2/35.23.1645.1027@35.23.1645.1027" timestamp="1587488275994" />
+    <state x="328" y="51" key="CommitChangelistDialog2/35.23.1645.1027@35.23.1645.1027" timestamp="1587506058440" />
     <state x="498" y="169" key="RollbackChangesDialog" timestamp="1587138648547">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
@@ -181,10 +184,10 @@
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
     <state x="359" y="175" key="SettingsEditor/35.23.1645.1027@35.23.1645.1027" timestamp="1587398894728" />
-    <state x="457" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587488277492">
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587506060092">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
-    <state x="457" y="258" key="Vcs.Push.Dialog.v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587488277492" />
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587506060092" />
     <state x="639" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587417147988">
       <screen x="35" y="23" width="1645" height="1027" />
     </state>
