@@ -1,17 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+  <component name="ChangeListManager">
+    <list default="true" id="41a2de24-1454-4f15-9430-39fec1452e1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1afvbYL15maDUqqB0xXFW1WuW63" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.SCSS" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/locales" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="i18n">
+      <created>1587064149143</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587064149143</updated>
+    </task>
+    <task id="LOCAL-00002" summary="language Detector">
+      <created>1587076882724</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587076882724</updated>
+    </task>
+    <task id="LOCAL-00003" summary="home static text">
+      <created>1587138539927</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587138539927</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41a2de24-1454-4f15-9430-39fec1452e1d" name="Default Changelist" comment="" />
+      <created>1587139534866</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587139534866</updated>
+      <workItem from="1587139536433" duration="19745000" />
+      <workItem from="1587477096044" duration="10747000" />
+    </task>
+    <task id="LOCAL-00004" summary="last modyo sdk">
+      <created>1587154447129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587154447129</updated>
+    </task>
+    <task id="LOCAL-00005" summary="start refactor modyo SDK">
+      <created>1587396324376</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587396324376</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor sdk">
+      <created>1587402911316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587402911316</updated>
+    </task>
+    <task id="LOCAL-00007" summary="static text">
+      <created>1587408310391</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587408310391</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Modyo Bankyo Entries">
+      <created>1587418356562</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587418356562</updated>
+    </task>
+    <task id="LOCAL-00009" summary="home">
+      <created>1587485105019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587485105019</updated>
+    </task>
+    <task id="LOCAL-00010" summary="about us">
+      <created>1587485671991</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587485671991</updated>
+    </task>
+    <task id="LOCAL-00011" summary="blog, plans, invite, hero plans">
+      <created>1587488276363</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587488276363</updated>
+    </task>
+    <task id="LOCAL-00012" summary="posts translate">
+      <created>1587506058634</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587506058634</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="i18n" />
+    <MESSAGE value="language Detector" />
+    <MESSAGE value="home static text" />
+    <MESSAGE value="last modyo sdk" />
+    <MESSAGE value="start refactor modyo SDK" />
+    <MESSAGE value="refactor sdk" />
+    <MESSAGE value="static text" />
+    <MESSAGE value="Modyo Bankyo Entries" />
+    <MESSAGE value="home" />
+    <MESSAGE value="about us" />
+    <MESSAGE value="blog, plans, invite, hero plans" />
+    <MESSAGE value="posts translate" />
+    <option name="LAST_COMMIT_MESSAGE" value="posts translate" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587157533074">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="575" y="336" key="#com.intellij.fileTypes.FileTypeChooser/35.23.1645.1027@35.23.1645.1027" timestamp="1587157533074" />
+    <state x="328" y="51" key="CommitChangelistDialog2" timestamp="1587506058440">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="328" y="51" key="CommitChangelistDialog2/35.23.1645.1027@35.23.1645.1027" timestamp="1587506058440" />
+    <state x="498" y="169" key="RollbackChangesDialog" timestamp="1587138648547">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="498" y="169" key="RollbackChangesDialog/35.23.1645.1027@35.23.1645.1027" timestamp="1587138648547" />
+    <state x="359" y="175" key="SettingsEditor" timestamp="1587398894728">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="359" y="175" key="SettingsEditor/35.23.1645.1027@35.23.1645.1027" timestamp="1587398894728" />
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2" timestamp="1587506060092">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="457" y="258" key="Vcs.Push.Dialog.v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587506060092" />
+    <state x="639" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587417147988">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="639" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/35.23.1645.1027@35.23.1645.1027" timestamp="1587417147988" />
+    <state x="506" y="277" width="703" height="518" key="find.popup" timestamp="1587505102858">
+      <screen x="35" y="23" width="1645" height="1027" />
+    </state>
+    <state x="506" y="277" width="703" height="518" key="find.popup/35.23.1645.1027@35.23.1645.1027" timestamp="1587505102858" />
   </component>
 </project>

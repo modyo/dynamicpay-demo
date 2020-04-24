@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
-import getClient from "./modyoClient";
 import "./Home.css";
 import Hero from "./Hero";
 import Brands from "./Brands";
+import getEntries from "./modyoBankyoEntries";
+import i18n from "./i18n";
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,15 +12,19 @@ class Home extends React.Component {
       blocks: [],
       hero: null,
       isLoadingHero: false,
-      isLoading: false
+      isLoading: false,
     };
   }
   componentDidMount() {
     this.setState({ isLoadingHero: true, isLoading: true });
-    getClient("fintech")
-      .getEntries("card")
+    this.getCard();
+    this.getHero();
+    this.checkLanguageChanged();
+  }
+
+  getCard() {
+    getEntries("getdynamicpay-content", "card", i18n.language)
       .then(data => {
-        // console.log("data: ", data);
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
           const item = data.entries[index];
@@ -27,16 +32,26 @@ class Home extends React.Component {
         }
         this.setState({ blocks: items, isLoading: false });
       });
-    getClient("fintech")
-      .getEntries("hero", "meta.tag=hero-home")
+  }
+
+  getHero() {
+    getEntries("getdynamicpay-content", "hero", i18n.language)
       .then(data => {
         this.setState({ hero: data.entries[0].fields, isLoadingHero: false });
       });
   }
+
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ isLoadingHero: true, isLoading: true, blocks: [], hero: null });
+      this.getCard();
+      this.getHero();
+    });
+  }
+
   render() {
     const { blocks, hero, isLoadingHero } = this.state;
-    // console.log("hero: ", hero);
-    // console.log("isLoading: ", isLoading);
+
     return (
       <Fragment>
         <Hero hero={hero} isLoadingHero={isLoadingHero} />

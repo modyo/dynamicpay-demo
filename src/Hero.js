@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.css";
 import Loading from "./Loading";
+import { withNamespaces } from 'react-i18next';
 
 const layout = function(props) {
   const { hero } = props;
@@ -14,18 +15,18 @@ const layout = function(props) {
             <div className="row">
               <div className="col-md-6 d-flex align-items-center">
                 <div>
-                  <h2>{hero.Title}</h2>
-                  <div dangerouslySetInnerHTML={{ __html: hero.Description }} />
+                  <h2>{hero.title}</h2>
+                  <div dangerouslySetInnerHTML={{ __html: hero.description }} />
                   <a
                     className="btn btn-outline-primary btn-lg mt-5"
-                    href={hero["Url Link"]}
+                    href={hero["url link"]}
                   >
-                    {hero["Link Title"]}
+                    {hero["link title"]}
                   </a>
                 </div>
               </div>
               <div className="col-md-6 mt-4 mt-lg-0">
-                <img src={hero.Cover.url} alt={hero.Cover.title} />
+                <img src={hero.cover.url} alt={hero.cover.title} />
               </div>
             </div>
           </div>
@@ -39,7 +40,10 @@ function Hero(props) {
   // console.log("props: ", props);
   const { hero } = props;
 
-  return hero ? layout(props) : <Loading title="Cargando..." />;
+  const { t } = props;
+  const loading = t('global-loading');
+
+  return hero ? layout(props) : <Loading title={loading} />;
 }
 
-export default Hero;
+export default withNamespaces()(Hero);

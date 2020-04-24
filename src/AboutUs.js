@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from "react";
-import getClient from "./modyoClient";
+import getEntries from "./modyoBankyoEntries";
 import Loading from "./Loading";
 import "./Plans.css";
 import img1 from "./img-stock/bg-23.jpg";
+import { withNamespaces } from 'react-i18next';
+import i18n from "./i18n";
 
-export default class AboutUs extends Component {
+class AboutUs extends Component {
   constructor(props) {
     super(props);
 
@@ -14,8 +16,12 @@ export default class AboutUs extends Component {
   }
 
   componentDidMount() {
-    getClient("fintech")
-      .getEntries("card", "meta.tag=hero-about")
+    this.getCard();
+    this.checkLanguageChanged();
+  }
+
+  getCard() {
+    getEntries("getdynamicpay-content", "card", i18n.language, "meta.tag=hero-about")
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
@@ -27,8 +33,17 @@ export default class AboutUs extends Component {
       });
   }
 
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ hero: null });
+      this.getCard();
+    });
+  }
+
   layoutHero() {
     const hero = this.state.hero[0];
+    const { t } = this.props;
+
     return (
       <Fragment>
         <div className="header-video white">
@@ -54,14 +69,9 @@ export default class AboutUs extends Component {
           <div className="container content">
             <div className="row">
               <div className="col-md-6 col-center text-center boxed-inverse shadow-1">
-                <h4>Revisa nuestros servicios</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adip ullamco laboris
-                  nisi utla pariature tempore marto.
-                </p>
-                <a href="/#servicios" className="btn btn-primary btn-lg">
-                  Servicios
-                </a>
+                <h4>{t('about-us-our-services')}</h4>
+                <p>{t('about-us-description')}</p>
+                <a href="/#servicios" className="btn btn-primary btn-lg">{t('about-us-services')}</a>
               </div>
             </div>
           </div>
@@ -70,10 +80,15 @@ export default class AboutUs extends Component {
     );
   }
   render() {
+    const { t } = this.props;
+    const loading = t('global-loading');
     return (
       <Fragment>
-        {this.state.hero ? this.layoutHero() : <Loading title="Cargando..." />}
+        {this.state.hero ? this.layoutHero() : <Loading title={loading} />}
       </Fragment>
     );
   }
 }
+
+
+export default withNamespaces()(AboutUs);

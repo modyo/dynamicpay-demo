@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import getClient from "./modyoClient";
+import getEntries from "./modyoBankyoEntries";
 import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
@@ -8,20 +8,22 @@ import PostShow from "./PostShow";
 import Invite from "./Invite";
 import Plans from "./Plans";
 import AboutUs from "./AboutUs";
+import { withNamespaces } from 'react-i18next';
+import i18n from './i18n';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       entries: [],
       activeMenu: false
     };
   }
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    getClient("static-data")
-      .getEntries("menu-item")
+
+
+  getComponentData() {
+    this.setState({ entries: [], isLoading: true });
+    getEntries("getdynamicpay-static-data", "menu-item", i18n.language)
       .then(response => {
         // console.log("response: ", response);
         let items = [];
@@ -34,14 +36,27 @@ class App extends React.Component {
         );
         // console.log("sortedItems: ", sortedItems);
         this.setState({ entries: sortedItems, isLoading: false });
+      })
+      .catch(err => {
+        console.log('* App - getComponentData - ERROR: ', err)
       });
+  }
+
+  componentDidMount() {
+    this.getComponentData();
   }
 
   render() {
     const { entries, activeMenu } = this.state;
+    const { t } = this.props;
     // console.log("entries: ", entries);
     // console.log("isLoading: ", isLoading);
     const menu = entries;
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng).then(() => {
+        this.getComponentData();
+      });
+    };
     return (
       // dynamic component
       <Router>
@@ -83,6 +98,16 @@ class App extends React.Component {
                       </NavLink>
                     </li>
                   ))}
+                  <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {t('home-header-language')}
+                    </a>
+                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <button className="dropdown-item" onClick={() => changeLanguage('en')}>{t('home-header-english')}</button>
+                      <button className="dropdown-item" onClick={() => changeLanguage('es')}>{t('home-header-spanish')}</button>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -118,10 +143,10 @@ class App extends React.Component {
                   <img width="120" src={logo} alt="" />
                 </div>
                 <div className="col-md-6 footer-left text-left">
-                  <p>Collins Street West 8007, San Fransico, United States.</p>
+                  <p>{t('home-footer-address')}</p>
                   <div className="tag-row">
-                    <span>support@getdynamicpay.com</span>
-                    <span>+02 3205550678</span>
+                    <span>{t('home-footer-email')}</span>
+                    <span>{t('home-footer-phone')}</span>
                   </div>
                 </div>
                 <div className="col-md-3 footer-left text-right text-left-sm">
@@ -159,7 +184,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="row copy-row">
-              <div className="col-md-12 copy-text">© 2020 Dynamic Pay</div>
+              <div className="col-md-12 copy-text">{t('home-footer-copyright')}</div>
             </div>
           </div>
         </footer>
@@ -168,4 +193,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withNamespaces()(App);
+

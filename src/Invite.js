@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import HeroInvite from "./HeroInvite";
-import getClient from "./modyoClient";
+import getEntries from "./modyoBankyoEntries";
 import Loading from "./Loading";
+import { withNamespaces } from 'react-i18next';
+import i18n from "./i18n";
 
-export default class Invite extends Component {
+class Invite extends Component {
   constructor(props) {
     super(props);
 
@@ -13,8 +15,12 @@ export default class Invite extends Component {
   }
 
   componentDidMount() {
-    getClient("fintech")
-      .getEntries("card", "meta.tag=hero-invite")
+    this.getCard();
+    this.checkLanguageChanged();
+  }
+
+  getCard() {
+    getEntries("getdynamicpay-content", "card", i18n.language, "meta.tag=hero-invite")
       .then(data => {
         let items = [];
         for (let index = 0; index < data.entries.length; index++) {
@@ -29,15 +35,26 @@ export default class Invite extends Component {
       });
   }
 
+  checkLanguageChanged() {
+    i18n.on('languageChanged', (lng) => {
+      this.setState({ hero: null, isLoading: true });
+      this.getCard();
+    });
+  }
+
   render() {
+    const { t } = this.props;
+    const loading = t('global-loading');
     return (
       <div className="invite-layout">
         {this.state.hero ? (
           <HeroInvite hero={this.state.hero[0]} />
         ) : (
-          <Loading title="Cargando..." />
+          <Loading title={loading} />
         )}
       </div>
     );
   }
 }
+
+export default withNamespaces()(Invite);
