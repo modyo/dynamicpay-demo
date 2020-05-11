@@ -15,7 +15,7 @@ const resources = {
         translation: translationES
     },
 };
-
+ 
 const languagedetectorOptions = {
     // order and from where user language should be detected
     order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
