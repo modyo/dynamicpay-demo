@@ -100,7 +100,7 @@ class App extends React.Component {
                   <li className='nav-item dropdown'>
                     <a
                       className='nav-link dropdown-toggle'
-                      href='#'
+                      href='/#'
                       id='navbarDropdown'
                       role='button'
                       data-toggle='dropdown'

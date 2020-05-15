@@ -2,7 +2,6 @@ import React from "react";
 import getEntry from "./modyoDynamicEntry";
 import { withNamespaces } from "react-i18next";
 import i18n from "./i18n";
-import getEntries from "./modyoDynamicEntries";
 
 class PostShow extends React.Component {
   constructor(props) {
