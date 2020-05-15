@@ -8,23 +8,22 @@ import PostShow from "./PostShow";
 import Invite from "./Invite";
 import Plans from "./Plans";
 import AboutUs from "./AboutUs";
-import { withNamespaces } from 'react-i18next';
-import i18n from './i18n';
+import { withNamespaces } from "react-i18next";
+import i18n from "./i18n";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       entries: [],
-      activeMenu: false
+      activeMenu: false,
     };
   }
-
 
   getComponentData() {
     this.setState({ entries: [], isLoading: true });
     getEntries("getdynamicpay-static-data", "menu-item", i18n.language)
-      .then(response => {
+      .then((response) => {
         // console.log("response: ", response);
         let items = [];
         for (let index = 0; index < response.entries.length; index++) {
@@ -37,8 +36,8 @@ class App extends React.Component {
         // console.log("sortedItems: ", sortedItems);
         this.setState({ entries: sortedItems, isLoading: false });
       })
-      .catch(err => {
-        console.log('* App - getComponentData - ERROR: ', err)
+      .catch((err) => {
+        console.log("* App - getComponentData - ERROR: ", err);
       });
   }
 
@@ -63,34 +62,34 @@ class App extends React.Component {
         {/* Acá está bien, se parsea lo que venga */}
 
         <header>
-          <div className="container">
-            <nav className="navbar navbar-expand-lg navbar-light d-flex">
-              <a className="navbar-brand" href="/">
-                <img src={logo} alt="" />
+          <div className='container'>
+            <nav className='navbar navbar-expand-lg navbar-light d-flex'>
+              <a className='navbar-brand' href='/'>
+                <img src={logo} alt='' />
               </a>
               <button
                 onClick={() => this.setState({ activeMenu: true })}
-                className="btn btn-menu d-lg-none"
+                className='btn btn-menu d-lg-none'
               >
-                <i className="mdi mdi-menu mr-0" />
+                <i className='mdi mdi-menu mr-0' />
               </button>
 
               <div
                 className={`ml-auto ${activeMenu ? "active" : ""}`}
-                id="navbarNav"
+                id='navbarNav'
               >
                 <button
                   onClick={() => this.setState({ activeMenu: false })}
-                  className="btn btn-close-menu d-lg-none"
+                  className='btn btn-close-menu d-lg-none'
                 >
-                  <i className="mdi mdi-close mr-0" />
+                  <i className='mdi mdi-close mr-0' />
                 </button>
-                <ul className="navbar-nav">
+                <ul className='navbar-nav'>
                   {menu.map((item, i) => (
-                    <li className="nav-item" key={i}>
+                    <li className='nav-item' key={i}>
                       <NavLink
                         onClick={() => this.setState({ activeMenu: false })}
-                        className="nav-link"
+                        className='nav-link'
                         activeClassName={item.url === "/" ? "" : "active"}
                         to={item.url}
                       >
@@ -98,14 +97,34 @@ class App extends React.Component {
                       </NavLink>
                     </li>
                   ))}
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      {t('home-header-language')}
+                  <li className='nav-item dropdown'>
+                    <a
+                      className='nav-link dropdown-toggle'
+                      href='#'
+                      id='navbarDropdown'
+                      role='button'
+                      data-toggle='dropdown'
+                      aria-haspopup='true'
+                      aria-expanded='false'
+                    >
+                      {t("home-header-language")}
                     </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <button className="dropdown-item" onClick={() => changeLanguage('en')}>{t('home-header-english')}</button>
-                      <button className="dropdown-item" onClick={() => changeLanguage('es')}>{t('home-header-spanish')}</button>
+                    <div
+                      className='dropdown-menu'
+                      aria-labelledby='navbarDropdown'
+                    >
+                      <button
+                        className='dropdown-item'
+                        onClick={() => changeLanguage("en")}
+                      >
+                        {t("home-header-english")}
+                      </button>
+                      <button
+                        className='dropdown-item'
+                        onClick={() => changeLanguage("es")}
+                      >
+                        {t("home-header-spanish")}
+                      </button>
                     </div>
                   </li>
                 </ul>
@@ -128,63 +147,65 @@ class App extends React.Component {
           );
         })*/}
         </header>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/blog" component={Blog} />
-        <Route exact path="/invite" component={Invite} />
-        <Route exact path="/plans" component={Plans} />
-        <Route exact path="/about-us" component={AboutUs} />
-        <Route exact path="/blog/:postId" component={PostShow} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/blog' component={Blog} />
+        <Route exact path='/invite' component={Invite} />
+        <Route exact path='/plans' component={Plans} />
+        <Route exact path='/about-us' component={AboutUs} />
+        <Route exact path='/blog/:postId' component={PostShow} />
 
-        <footer className="footer-base">
-          <div className="content">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-3 footer-center text-left mb-3 mb-lg-0">
-                  <img width="120" src={logo} alt="" />
+        <footer className='footer-base'>
+          <div className='content'>
+            <div className='container'>
+              <div className='row'>
+                <div className='col-md-3 footer-center text-left mb-3 mb-lg-0'>
+                  <img width='120' src={logo} alt='' />
                 </div>
-                <div className="col-md-6 footer-left text-left">
-                  <p>{t('home-footer-address')}</p>
-                  <div className="tag-row">
-                    <span>{t('home-footer-email')}</span>
-                    <span>{t('home-footer-phone')}</span>
+                <div className='col-md-6 footer-left text-left'>
+                  <p>{t("home-footer-address")}</p>
+                  <div className='tag-row'>
+                    <span>{t("home-footer-email")}</span>
+                    <span>{t("home-footer-phone")}</span>
                   </div>
                 </div>
-                <div className="col-md-3 footer-left text-right text-left-sm">
-                  <div className="btn-group social-group btn-group-icons">
+                <div className='col-md-3 footer-left text-right text-left-sm'>
+                  <div className='btn-group social-group btn-group-icons'>
                     <a
-                      target="_blank"
-                      href="/#dummy-link"
-                      data-social="share-facebook"
+                      target='_blank'
+                      href='/#dummy-link'
+                      data-social='share-facebook'
                     >
-                      <i className="mdi mdi-facebook" />
+                      <i className='mdi mdi-facebook' />
                     </a>
                     <a
-                      target="_blank"
-                      href="/#dummy-link"
-                      data-social="share-twitter"
+                      target='_blank'
+                      href='/#dummy-link'
+                      data-social='share-twitter'
                     >
-                      <i className="mdi mdi-twitter" />
+                      <i className='mdi mdi-twitter' />
                     </a>
                     <a
-                      target="_blank"
-                      href="/#dummy-link"
-                      data-social="share-google"
+                      target='_blank'
+                      href='/#dummy-link'
+                      data-social='share-google'
                     >
-                      <i className="mdi mdi-google" />
+                      <i className='mdi mdi-google' />
                     </a>
                     <a
-                      target="_blank"
-                      href="/#dummy-link"
-                      data-social="share-linkedin"
+                      target='_blank'
+                      href='/#dummy-link'
+                      data-social='share-linkedin'
                     >
-                      <i className="mdi mdi-linkedin" />
+                      <i className='mdi mdi-linkedin' />
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="row copy-row">
-              <div className="col-md-12 copy-text">{t('home-footer-copyright')}</div>
+            <div className='row copy-row'>
+              <div className='col-md-12 copy-text'>
+                {t("home-footer-copyright")}
+              </div>
             </div>
           </div>
         </footer>
@@ -194,4 +215,3 @@ class App extends React.Component {
 }
 
 export default withNamespaces()(App);
-
