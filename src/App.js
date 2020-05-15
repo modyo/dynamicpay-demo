@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import getEntries from "./modyoBankyoEntries";
+import getEntries from "./modyoDynamicEntries";
 import logo from "./images/logo.png";
 import Home from "./Home";
 import Blog from "./Blog";
