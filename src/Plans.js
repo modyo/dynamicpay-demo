@@ -27,7 +27,7 @@ class Plans extends Component {
       "getdynamicpay-content",
       "hero",
       i18n.language,
-      "meta.tag=hero-plans"
+      "meta.tags=hero-plans"
     ).then((data) => {
       let items = [];
       for (let index = 0; index < data.entries.length; index++) {
