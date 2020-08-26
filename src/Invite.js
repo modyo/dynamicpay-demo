@@ -24,7 +24,7 @@ class Invite extends Component {
       "getdynamicpay-content",
       "card",
       i18n.language,
-      "meta.tag=hero-invite"
+      "meta.tags=hero-invite"
     ).then((data) => {
       let items = [];
       for (let index = 0; index < data.entries.length; index++) {
