@@ -1,15 +1,67 @@
 {
-  "short_name": "Dynamic Pay",
   "name": "Modyo Dynamic Pay Demo",
+  "short_name": "Dynamic Pay",
+  "description": "Web page for services area",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#8492af",
+  "shortcuts": [
+    {
+      "name": "Get plans",
+      "short_name": "Plans",
+      "description": "View current pricing plans",
+      "url": "/plans?source=pwa",
+      "icons": [{ "src": "/img/pencil.png", "sizes": "128x128" }]
+    }
+  ],
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/img/icon24.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/maskable192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
