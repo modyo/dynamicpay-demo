@@ -1,11 +1,11 @@
 {
   "name": "Modyo Dynamic Pay Demo",
   "short_name": "Dynamic Pay",
-  "description": "Web page for services area",
+  "description": "Pay and manage your money. Operate your finances in the best way with a friendly software",
   "start_url": ".",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#ffffff",
+  "background_color": "#eaeaea",
   "theme_color": "#8492af",
   "shortcuts": [
     {
