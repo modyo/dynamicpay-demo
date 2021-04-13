@@ -39,35 +39,6 @@ self.addEventListener('activate', e => {
 
 // Call Fetch Event
 self.addEventListener('fetch', e => {
-  if(e.request.url.indexOf('https') === 0){
-    console.log('Service Worker: Fetching');
-    e.respondWith(
-      caches.match(e.request).then(response => {
-        // If the request is in the cache
-        if(response){
-          console.log(`  %cService Worker found in cache ${e.request.url}`, "color: #28a745");
-          return response;
-        }
-        
-        // If the request is NOT in the cache, fetch and cache
-        var reqClone = e.request.clone();
-        //Fetching
-        return fetch(reqClone).then( res => {
-          if ( !res ) {
-            console.log("%cService Worker no response from fetch ", "color: #7d030f")
-            return res;
-          }
-          //Caching 
-          caches.open(cacheName).then(cache => {
-            cache.put(e.request, res.clone())
-            console.log('%cService Worker new data cached ' + e.request.url, "color:#ffc107");
-            return res
-          })
-        }).catch( err => {
-          console.log('Service Worker Error fetching and caching', err);
-        })
-      })
-    )
-  }
+  console.log('Fetching')
 });
     
