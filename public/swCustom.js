@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
-const cacheName = 'v1';
 
-const cacheAssets = [
+const CACHE_NAME = 'v1';
+const CACHE_ASSETS = [
   '/',
   '/index.html',
   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
@@ -19,9 +19,9 @@ const cacheAssets = [
 self.addEventListener('install', e => {
   console.log('Service Worker: Installed');
   e.waitUntil(
-    caches.open(cacheName).then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
         console.log('Service Worker: Caching Files');
-        cache.addAll(cacheAssets);
+        cache.addAll(CACHE_ASSETS);
     }).then(() => self.skipWaiting())
   )
 });
@@ -34,8 +34,8 @@ self.addEventListener('activate', e => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cache => {
-          if (cache !== cacheName) {
-            console.log('Service Worker: Clearing Old Cache');
+          if (cache !== CACHE_NAME) {
+            console.log('Service Worker: Clearing Old Cache ', cache);
             return caches.delete(cache)
            }
         })
@@ -57,20 +57,35 @@ function isInArray( string, array ) {
 self.addEventListener('fetch', e => {
   const requestURL = new URL(e.request.url)
   if(/https/.test(requestURL.protocol)){
-    if ( isInArray( e.request.url, cacheAssets )) {
+    if ( isInArray( e.request.url, CACHE_ASSETS )) {
       console.log(`  %cService Worker found in cache ${e.request.url}`, "color: #28a745");
       e.respondWith( caches.match( e.request ))
     } 
     else if (/^\/api\//.test(requestURL.pathname)){
-      console.log('Service Worker: Fetching');
-      e.respondWith(fetch(e.request))
+      console.log('Service Worker: Fetching' + requestURL.pathname);
+      e.respondWith(async function() {
+        const cacheResponse = await caches.match(e.request)
+        if (cacheResponse){
+          console.log(`  %cService Worker found in cache ${e.request.url}`, "color: #28a745");
+          return cacheResponse
+        } 
+        try {
+          const response = await fetch(e.request)
+          const resCloned = response.clone()
+          const cache = await caches.open(CACHE_NAME)
+          cache.put(e.request.url, resCloned )
+          return response
+        } catch (err) {
+          return caches.match(e.request)
+        }
+      }())
     }
     else if (/^\/assets|uploads\//.test(requestURL.pathname)) {
       console.log('Service Worker: Fetching');
       e.respondWith(async function() {
         try {
           const response = await fetch(e.request)
-          const cache = await caches.open(cacheName)
+          const cache = await caches.open(CACHE_NAME)
           cache.put(e.request.url, response.clone())
           return response
         } catch (err) {
@@ -85,16 +100,12 @@ self.addEventListener('fetch', e => {
         try {
           const fetchResponse = await fetch(e.request)
           console.log('%cService Worker new data cached ' + e.request.url, "color:#ffc107");
-          const cache = await caches.open(cacheName)
+          const cache = await caches.open(CACHE_NAME)
           cache.put(e.request.url, fetchResponse.clone())
           return fetchResponse
         } catch(err) {
           console.log('ERROR')
           console.error(err)
-          // const cache = await caches.open(STATIC_CACHE)
-          // if ( event.request.headers.get( 'accept' ).includes( 'text/html' )) {
-          //   return cache.match( './offline' )
-          // }
         }
       }())
     }
