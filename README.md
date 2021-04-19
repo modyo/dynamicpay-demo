@@ -2,9 +2,9 @@
 
 This is a demo site.
 
-## Instalation
+## Installation
 
-Use package manager [npm](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/) to install dependencies and start the development server
+Use a package manager like [npm](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/) to install dependencies and start the development server
 
 ```bash
 # for npm users
@@ -15,13 +15,13 @@ yarn && yarn start
 
 ## Usage
 
-This project was created with Create-React-App (CRA), by default CRA uses [Workbox](https://developers.google.com/web/tools/workbox) to create the service worker, and use features as Strategies, Precaching, Runtime caching, and so on. You can find it in `src/swWorkbox.js`.
+This project was created with Create-React-App (CRA), by default CRA use [Workbox](https://developers.google.com/web/tools/workbox) to create the service worker, and use features as Strategies, Precaching, Runtime caching, and so on. You can find it in `src/swWorkbox.js`.
 
 Currently, the project is using a **custom Service Worker**, built with Vanilla JS, which you can modify to implement your own cache strategies. You can find it in `public/swCustom.js`.
 
 Service workers can run only over **HTTPS** connection, to see more you can visit [this link](https://developers.google.com/web/fundamentals/primers/service-workers).
 
-To use Workbox or custom service worker, just replace the file name in `src/swRegister.js`
+To use Workbox or a custom service worker, just replace the file name in `src/swRegister.js`
 
 ### `swRegister.js`
 
@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
 
 ## Custom Service Worker
 
-To test *offline* feature of your **custom service worker**, you'll need some previous steps:
+To test with ngrok your custom service worker offline, you'll need:
 
 1. Download and install [ngrok](https://ngrok.com/download)
 2. Serve the project
